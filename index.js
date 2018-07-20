@@ -1,6 +1,8 @@
 var express=require('express');
 var app=express();
 
+
+app.set('port',(process.env.PORT || 5000));
 app.set('view engine','ejs');
 
 
@@ -23,7 +25,6 @@ var students={
     3:'Json'
 }
 
-
-app.listen(5000,function(){
-    console.log('Our server is live in port 5000');
-})
+app.listen(app.get('port'),function(){
+    console.log('Node app is running in port',app.get('port'));
+});
