@@ -6,7 +6,7 @@ app.set('port',(process.env.PORT || 5000));
 app.set('view engine','ejs');
 
 
-app.get('/',function(req,res){
+app.get('/student:id',function(req,res){
     res.render('student',{name:students[req.params.id],id:req.params.id});
     
 })
