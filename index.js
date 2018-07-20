@@ -10,9 +10,9 @@ app.get('/student/:id',function(req,res){
     res.render('student',{name:students[req.params.id],id:req.params.id});
     
 })
-
+//holaa
  app.get('/',function(req,res){
-     res.sendFile(__dirname   +'/index.html');
+     res.render('index.html');
  })
 
 app.get('/about',function(req,res){
