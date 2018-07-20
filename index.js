@@ -12,7 +12,7 @@ app.get('/student/:id',function(req,res){
 })
 //holaa
  app.get('/',function(req,res){
-     res.render('index.html');
+     res.render('inicio');
  })
 
 app.get('/about',function(req,res){
