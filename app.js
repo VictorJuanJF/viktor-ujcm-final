@@ -122,7 +122,7 @@ passport.use(new FacebookStrategy({
     }
 ));
 
-app.use('/broadcast', broadcast);
+//app.use('/broadcast', broadcast);
 
 
 
