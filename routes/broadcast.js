@@ -21,14 +21,15 @@ router.get('/broadcast', ensureAuthenticated, function (req, res) {
 });
 
 router.post('/broadcast', ensureAuthenticated, function (req, res) {
-    // let message = req.body.message;
-    // let newstype = parseInt(req.body.newstype, 10);
-    // req.session.newstype = newstype;
-    // req.session.message = message;
-    // userService.readAllUsers(function(users) {
-    //     req.session.users = users;
-    //     res.render('broadcast-confirm', {user: req.user, message: message, users: users, numUsers: users.length, newstype: newstype})
-    // }, newstype);
+    let message = req.body.message;
+    let newstype = parseInt(req.body.newstype, 10);
+    req.session.newstype = newstype;
+    req.session.message = message;
+    userService.readAllUsers(function(users) {
+        console.log('los usuarios son: ',users);
+        req.session.users = users;
+        res.render('broadcast-confirm', {user: req.user, message: message, users: users, numUsers: users.length, newstype: newstype})
+    }, newstype);
     res.render('broadcast-confirm');
 
 });

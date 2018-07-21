@@ -17,7 +17,7 @@ module.exports = {
             if (!error && response.statusCode == 200) {
 
                 var user = JSON.parse(body);
-                console.log('Se entro a user.js');
+                console.log('Se entro a addUser de user.js');
                 console.log('Cantidad Caracteres usuario ',user.first_name.length);
 
 
@@ -85,6 +85,7 @@ module.exports = {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
             }
+            console.log('Se entro a readAllUsers de user.js');
             client
                 .query(
                     'SELECT fb_id, first_name, last_name FROM users WHERE newsletter=$1',
@@ -110,6 +111,7 @@ module.exports = {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
             }
+            console.log('Se entro a newsletterSettings de user.js');
             client
                 .query(
                     'UPDATE users SET newsletter=$1 WHERE fb_id=$2',
