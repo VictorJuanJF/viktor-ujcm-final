@@ -7,8 +7,7 @@ app.set('view engine','ejs');
 
 
 app.get('/student/:id',function(req,res){
-    res.render('student',{name:students[req.params.id],id:req.params.id});
-    
+    res.render('student',{name:students[req.params.id],id:req.params.id});  
 })
 //holaa
  app.get('/',function(req,res){
