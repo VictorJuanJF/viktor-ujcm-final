@@ -19,6 +19,8 @@
     "ejs": "^2.6.1",
     "express": "^4.13.4",
     "express-session": "^1.15.6",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
     "pg": "7.4.3",
     "request": "^2.72.0",
     "sendgrid": "^4.2.0",
