@@ -54,7 +54,7 @@ app.set('view engine','ejs');
 
 //Invoco a la pagina
 app.get('/',function(req,res){
-	res.render('pages/login');
+	res.render('login');
 })
 
 //verify request came from facebook
