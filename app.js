@@ -215,9 +215,36 @@ function handleMessageAttachments(messageAttachments, senderID){
 
 function handleQuickReply(senderID, quickReply, messageId) {
 	var quickReplyPayload = quickReply.payload;
+	switch(quickReplyPayload){
+		case 'EVENTOS_UNO_X_SEMANA':
+			userService.newsletterSettings(function(updated){
+				if(updated){
+					sendTextMessage(senderID,"Gracias por suscribirte :D" +
+					"Si ya no quieres estar suscrito solo escribe : 'darse de baja'");
+				} else {
+					sendTextMessage(senderID,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
+					
+				}
+			},1,senderID);
+		break;
+		case 'EVENTOS_UNO_X_DIA':
+		userService.newsletterSettings(function(updated){
+			if(updated){
+					sendTextMessage(senderID,"Gracias por suscribirte :D" +
+					"Si ya no quieres estar suscrito solo escribe : 'darse de baja'");
+				} else {
+					sendTextMessage(senderID,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
+					
+				}
+			},2,senderID);
+			break;
+		default:
+		sendToApiAi(senderID, quickReplyPayload);
+		break;
+	}
 	console.log("Quick reply for message %s with payload %s", messageId, quickReplyPayload);
 	//send payload to api.ai
-	sendToApiAi(senderID, quickReplyPayload);
+	
 }
 
 //https://developers.facebook.com/docs/messenger-platform/webhook-reference/message-echo
@@ -229,6 +256,29 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	console.log('Se entro a handleApiAiAction');
 	switch (action) {
+		case "unsubscribe":
+		userService.newsletterSettings(function(updated){
+			if(updated){
+				sendTextMessage(sender,"Ya no estas suscrito, puedes activar esta opcion despues");
+			
+			} else {
+				sendTextMessage(sender,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
+				
+			}
+		},0,sender);
+
+		break;
+		case "req-tramites":
+		requisitos.leerTramitesPre(function (requisitos) {	
+			let requisito=`${requisitos}`;
+			let	reply = 'Estos son los requisitos que encontre :D\n'+requisito;
+			reply=reply.replace(/\\n/g, '\n');
+			//console.log('Mensaje dentro de handleApiAiAc: ',reply);
+			sendTextMessage(sender, reply);
+
+		}, responseText)
+
+		break;
 
 		case "iphone_colors":
 			colors.readAllColors(function(allColors){
@@ -422,6 +472,7 @@ function handleApiAiResponse(sender, response) {
 	let parameters = response.result.parameters;
 
 	console.log('Se paso por handleApiAiResponse');
+	console.log('messages.length = ',messages.length);	
 
 	sendTypingOff(sender);
 
@@ -431,6 +482,7 @@ function handleApiAiResponse(sender, response) {
 		let cardTypes = [];
 		let timeout = 0;
 		console.log('Probando bucle!');
+		
 		for (var i = 0; i < messages.length; i++) {
 
 			if ( previousType == 1 && (messages[i].type != 1 || i == messages.length - 1)) {
@@ -471,6 +523,8 @@ function handleApiAiResponse(sender, response) {
 		}
 	} else if (isDefined(responseText)) {
 		console.log('Mensaje Simple enviado');
+		//var respuesta=responseText;
+		responseText=responseText.replace(/\\n/g, '\n');
 		sendTextMessage(sender, responseText);
 	}
 }
@@ -811,6 +865,7 @@ function greetUserText(userId) {
  *
  */
 function callSendAPI(messageData) {
+	//messageData.text=messageData.text.replace(/\\n/,'\n');
 	request({
 		uri: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {
@@ -825,6 +880,7 @@ function callSendAPI(messageData) {
 			var recipientId = body.recipient_id;
 			var messageId = body.message_id;
 			console.log('se paso por callSendAPI');
+			console.log('el json a enviar es: ',messageData);
 			
 			if (messageId) {
 				console.log("Successfully sent message with id %s to recipient %s",
@@ -839,7 +895,24 @@ function callSendAPI(messageData) {
 	});
 }
 
+function suscribirseEventosUJCM(userId){
+	let responceText="Puedo envitarte noticias sobre los últimos eventos de la UJCM Filial Tacna :D "+
+	"¿Qué tan seguido te gustaría recibir esas noticias?";
+	let replies=[
+		{
+			"content_type":"text",
+			"title":"Una vez a la semana",
+			"payload":"EVENTOS_UNO_X_SEMANA"
+		},
+		{
+			"content_type":"text",
+			"title":"Una vez por dia",
+			"payload":"EVENTOS_UNO_X_DIA"
+		}
+	];
 
+	sendQuickReply(userId,responceText,replies);
+}
 
 /*
  * Postback Event
@@ -859,6 +932,10 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
+		case 'EVENTOS_UJCM':
+			suscribirseEventosUJCM(senderID);
+
+		break;
 		case 'GET_STARTED':
 			greetUserText(senderID);
 

@@ -34,6 +34,7 @@ module.exports = {
                         .query(sql1,
                             
                             function(err, result) {
+                               // done();
                                 if (err) {
                                     console.log('Query error: ' + err);
                                     
@@ -56,11 +57,17 @@ module.exports = {
                                     }
                                 }
                             });
-                        //done();
+                       
 
                         callback(user);
+                        done();
+                        
                     }); 
-                    pool.end();
+                   // pool.end(function (err) {
+                  //      if (err) throw err;
+            
+                   //     process.exit();
+                  ///  });
                 } else {
                     console.log("Cannot get data for fb user with id",
                         userId);
@@ -94,7 +101,7 @@ module.exports = {
                     });
             done();
         });
-        pool.end();
+        //pool.end();
     },
 
     newsletterSettings: function(callback, setting, userId) {
@@ -117,7 +124,7 @@ module.exports = {
                     });
             done();
         });
-        pool.end();
+        //pool.end();
     }
 
 }
