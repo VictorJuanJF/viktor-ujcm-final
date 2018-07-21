@@ -1,14 +1,14 @@
 const config = require('../config');
 const express = require('express');
 const userService = require('../user');
+const fbService = require('../fb-service/fb-service');
 const router = express.Router();
 
 
 router.get('/', function (req, res) {
-//     //res.send('Hello world, I am a chat bot')
-res.render('login');
-//     res.sendFile(__dirname   +'/index.html');
- });
+    //res.send('Hello world, I am a chat bot')
+    res.render('login');
+});
 
 
 router.get('/no-access', function (req, res) {
