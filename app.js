@@ -53,7 +53,7 @@ app.set('port', (process.env.PORT || 5000))
 app.set('view engine','ejs');
 
 app.get('/',function(req,res){
-	res.render('login');
+	res.render('pages/login');
 })
 
 //verify request came from facebook
