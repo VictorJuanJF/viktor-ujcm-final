@@ -16,7 +16,7 @@ const passport = require('passport');
 const FacebookStrategy=require('passport-facebook').Strategy;
 const session=require('express-session');
 const broadcast = require('./routes/broadcast');
-const fbService = require('../fb-service/fb-service');
+
 
 pg.defaults.ssl=true;
 
