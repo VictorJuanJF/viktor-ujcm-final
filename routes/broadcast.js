@@ -2,7 +2,7 @@ const config = require('../config');
 const express = require('express');
 const userService = require('../user');
 const router = express.Router();
-//const fbService = require('./fb-service/fb-service');
+const fbService = require('./fb-service/fb-service');
 
 
 router.get('/', function (req, res) {
