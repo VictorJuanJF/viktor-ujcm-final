@@ -30,7 +30,7 @@ router.post('/broadcast', ensureAuthenticated, function (req, res) {
         req.session.users = users;
         res.render('broadcast-confirm', {user: req.user, message: message, users: users, numUsers: users.length, newstype: newstype})
     }, newstype);
-    res.render('broadcast-confirm');
+   
 
 });
 
