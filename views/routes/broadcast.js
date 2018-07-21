@@ -4,11 +4,11 @@ const userService = require('../user');
 const router = express.Router();
 
 
-// router.get('/', function (req, res) {
+router.get('/', function (req, res) {
 //     //res.send('Hello world, I am a chat bot')
-//     //res.render('login');
+res.render('login');
 //     res.sendFile(__dirname   +'/index.html');
-// });
+ });
 
 
 router.get('/no-access', function (req, res) {
