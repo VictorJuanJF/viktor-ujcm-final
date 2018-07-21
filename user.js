@@ -99,8 +99,9 @@ module.exports = {
                             console.log(result.rows);
                             callback(result.rows);
                         };
+                        done();
                     });
-            done();
+            
         });
         //pool.end();
     },
@@ -123,8 +124,9 @@ module.exports = {
                         } else {
                             callback(true);
                         };
+                        done();
                     });
-            done();
+            
         });
         //pool.end();
     }
