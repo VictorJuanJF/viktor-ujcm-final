@@ -101,11 +101,6 @@ passport.deserializeUser(function(profile, cb) {
 
 app.set('view engine', 'ejs');
 
-app.get('/', function (req, res) {
-    //res.send('Hello world, I am a chat bot')
-    res.render('login');
-});
-
 app.get('/auth/facebook', passport.authenticate('facebook',{scope:'public_profile'}));
 
 
