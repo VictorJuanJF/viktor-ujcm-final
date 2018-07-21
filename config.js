@@ -3,7 +3,7 @@ module.exports = {
     FB_VERIFY_TOKEN: 'ujcmtoken',
     API_AI_CLIENT_ACCESS_TOKEN: 'a74c5f54c76c4dda9a64cc662fbcb43a',
     FB_APP_SECRET: '6cbeb0274af722f607eb501db1570714',
-    FB_APP_ID:'439329259885803',
+    FB_APP_ID:'2088363134567524',
     SERVER_URL: "https://smart-ujcm.herokuapp.com/",
     SENDGRID_API_KEY: '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',
     EMAIL_FROM: 'vj.jimenez96@gmail.com',
