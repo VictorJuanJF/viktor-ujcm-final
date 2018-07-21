@@ -54,7 +54,7 @@ if(!config.PG_CONFIG){ //postgresql config object
 
 app.set('port', (process.env.PORT || 5000))
 
-app.set('view engine','ejs');
+//app.set('view engine','ejs');
 
 // //Invoco a la pagina
 // app.get('/',function(req,res){
@@ -100,6 +100,11 @@ passport.deserializeUser(function(profile, cb) {
 
 
 app.set('view engine', 'ejs');
+
+app.get('/', function (req, res) {
+    //res.send('Hello world, I am a chat bot')
+    res.render('login');
+});
 
 app.get('/auth/facebook', passport.authenticate('facebook',{scope:'public_profile'}));
 
