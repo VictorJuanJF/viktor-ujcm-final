@@ -66,7 +66,7 @@ function ensureAuthenticated(req, res, next) {
         if (req.user.id === config.ADMIN_ID ) {
             return next();
         }
-        res.redirect('/broadcast/no-access');
+        res.redirect('/broadcast/');
     } else {
         res.redirect('/broadcast/');
     }

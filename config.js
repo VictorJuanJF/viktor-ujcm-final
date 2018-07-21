@@ -7,6 +7,7 @@ module.exports = {
     SERVER_URL: "https://smart-ujcm.herokuapp.com/",
     SENDGRID_API_KEY: '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',
     EMAIL_FROM: 'vj.jimenez96@gmail.com',
+    ADMIN_ID:'2097337190307778',
     EMAIL_TO:'vj.jimenez96@gmail.com',
     PG_CONFIG: {
         user: 'gjpwfjfsapumva',
