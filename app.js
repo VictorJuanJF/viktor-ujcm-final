@@ -12,6 +12,10 @@ const uuid = require('uuid');
 const userService=require('./user');
 const colors=require('./colors');
 const requisitos=require('./requisitosTramites');
+const passport = require('passport');
+const FacebookStrategy=require('passport-facebook').Strategy;
+const session=require('express-session');
+const broadcast = require('./routes/broadcast');
 
 pg.defaults.ssl=true;
 
@@ -52,10 +56,10 @@ app.set('port', (process.env.PORT || 5000))
 
 app.set('view engine','ejs');
 
-//Invoco a la pagina
-app.get('/',function(req,res){
-	res.render('login');
-})
+// //Invoco a la pagina
+// app.get('/',function(req,res){
+// 	res.render('login');
+// })
 
 //verify request came from facebook
 app.use(bodyParser.json({
@@ -73,9 +77,56 @@ app.use(bodyParser.urlencoded({
 // Process application/json
 app.use(bodyParser.json())
 
+//Autenticacion de facebook
+
+app.use(session(
+	{
+		secret: 'keyboard cat',
+		resave: true,
+		saveUninitilized: true
+	}
+));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(profile, cb) {
+    cb(null, profile);
+});
+
+passport.deserializeUser(function(profile, cb) {
+    cb(null, profile);
+});
+
+
+app.set('view engine', 'ejs');
+
+app.get('/auth/facebook', passport.authenticate('facebook',{scope:'public_profile'}));
+
+
+app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { successRedirect : '/broadcast/broadcast', failureRedirect: '/broadcast' }));
 
 
 
+passport.use(new FacebookStrategy({
+        clientID: config.FB_APP_ID,
+        clientSecret: config.FB_APP_SECRET,
+        callbackURL: config.SERVER_URL + "auth/facebook/callback"
+    },
+    function(accessToken, refreshToken, profile, cb) {
+		process.nextTick(function() {
+			return cb(null, profile);
+		});
+    }
+));
+
+app.use('/broadcast', broadcast);
+
+
+
+
+//Configurando acceso a facebook y apiAi
 const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
 	language: "en",
 	requestSource: "fb"
@@ -83,11 +134,6 @@ const apiAiService = apiai(config.API_AI_CLIENT_ACCESS_TOKEN, {
 const sessionIds = new Map();
 const usersMap=new Map();
 
-// Index route
-app.get('/', function (req, res) {
-	res.send('Hola mundo!, soy el bot de prueba de la UJCM')
-
-})
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
