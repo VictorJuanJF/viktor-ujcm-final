@@ -11,6 +11,7 @@ const app = express();
 const uuid = require('uuid');
 const userService=require('./user');
 const colors=require('./colors');
+const requisitos=require('./requisitosTramites');
 
 pg.defaults.ssl=true;
 
