@@ -1,10 +1,10 @@
 {
   "name": "hero",
   "version": "1.0.0",
-  "description": "",
+  "description": "Smart Bot UJCM",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node app.js"
   },
   "repository": {
     "type": "git",
