@@ -20,7 +20,7 @@ router.get('/broadcast', ensureAuthenticated, function (req, res) {
     res.render('broadcast', {user: req.user });
 });
 
-router.post('/broadcast', ensureAuthenticated, function (req, res) {
+router.post('/', ensureAuthenticated, function (req, res) {
     let message = req.body.message;
     let newstype = parseInt(req.body.newstype, 10);
     req.session.newstype = newstype;
