@@ -323,7 +323,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				console.log('Requisitos recibidos: ',`${requisitos}`);
 				let requisito=requisitos;
 				let requisitoLista=requisito[0]['requisito'];
-				let requisitoCosto=requisito[0]['costo'];
+				let requisitoCosto=requisito[1]['costo'];
 				let reply=[];
 				reply[0] = 'Estos son los requisitos que encontre para '+responseText+' 😉 \n'+requisitoLista;
 				reply[0]=reply[0].replace(/\\n/g, '\n');
