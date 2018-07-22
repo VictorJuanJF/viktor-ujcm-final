@@ -1,6 +1,7 @@
 const config = require('../config');
 const express = require('express');
 const userService = require('../user');
+const requisitos=require('../requisitosTramites');
 const router = express.Router();
 const fbService = require('../fb-service/fb-service');
 
@@ -13,7 +14,11 @@ res.render('index');
 
 
 router.get('/dashboard', function (req, res) {
-    res.render('dashboard');
+    requisitos.leerTramitesPre(function(listadoRequisitos){
+        req.session.listadoRequisitos=listadoRequisitos;
+        res.render('dashboard',{listadoRequisitos:listadoRequisitos});
+    });
+    
 });
 
 router.get('/no-access', function (req, res) {
