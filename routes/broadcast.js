@@ -29,6 +29,7 @@ router.post('/dashboard', function (req, res) {
      datosProcedimiento[2] = req.body.responsabilidad;
      datosProcedimiento[3] = req.body.requisito;
      datosProcedimiento[4] = req.body.duracion;
+     datosProcedimiento[5] = req.body.costo;
     requisitos.insertarTramitesPre(function(callback){
     }, datosProcedimiento);
     res.sendStatus(200);

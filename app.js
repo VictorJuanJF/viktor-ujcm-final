@@ -321,15 +321,19 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		if(!isDefined(contexts[0]) || contexts[0].name!='req-tramites_dialog_params_requisitos'){
 			requisitos.leerTramitesPre(function (requisitos) {	
 				let requisito=`${requisitos}`;
-				let	reply = 'Estos son los requisitos que encontre :D\n'+requisito;
-				reply=reply.replace(/\\n/g, '\n');
-				//console.log('Mensaje dentro de handleApiAiAc: ',reply);
-				sendTextMessage(sender, reply);
-	
-			}, responseText)
-			let replyAdition='Para más información puedes consultar el manual de procedimientos'+
+				let requisitoNombre=requisito.requisito[0];
+				let requisitoCosto=requisito.costo[0];
+				let reply=[];
+				reply[0] = 'Estos son los requisitos que encontre para'+responseText+' 😉 \n'+requisito.requisito;
+				reply[0]=reply[0].replace(/\\n/g, '\n');
+				reply[1]='El costo para este trámite es: ';
+				reply[2]='Tambien puedes ver el manual de procedimientos '+
 			'😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
-			sendTextMessage(sender,replyAdition);	
+			}, responseText)
+			for(var i=0;i<reply.length;i++){
+				sendTextMessage(sender,reply[i]);
+			}
+				
 		} else {
 			sendTextMessage(sender, responseText);
 		}

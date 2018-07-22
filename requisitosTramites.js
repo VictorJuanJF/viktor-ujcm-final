@@ -42,7 +42,7 @@ module.exports = {
             }
             client
                 .query(
-                    'SELECT requisito FROM public.procedimiento_ad_pre WHERE nombre=$1',
+                    'SELECT requisito,costo FROM public.procedimiento_ad_pre WHERE nombre=$1',
                     [nombreRequisito],
                     function(err, result) {
                         //
@@ -50,8 +50,8 @@ module.exports = {
                             console.log(err);
                             callback('');
                         } 
-                            console.log('Se esta enviando: ',result.rows[0]['requisito']);
-                            callback(result.rows[0]['requisito']);
+                            console.log('Se esta enviando: ',result.rows);
+                            callback(result.rows);
                             done();
                         
                     });
@@ -98,14 +98,15 @@ module.exports = {
             }
             client
                 .query(
-                    'INSERT INTO procedimiento_ad_pre (nombre,objetivo,responsabilidad,requisito,duracion)'+
-                    'VALUES ($1,$2,$3,$4,$5)',
+                    'INSERT INTO procedimiento_ad_pre (nombre,objetivo,responsabilidad,requisito,duracion,costo)'+
+                    'VALUES ($1,$2,$3,$4,$5,$6)',
                     [
                         datosProcedimiento[0], 
                         datosProcedimiento[1],
                         datosProcedimiento[2],
                         datosProcedimiento[3],
                         datosProcedimiento[4],
+                        datosProcedimiento[5]
                     ],
                     function(err, result) {
                         if (err) {
