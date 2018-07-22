@@ -318,20 +318,22 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		break;
 		case "req-tramites":
-		requisitos.leerTramitesPre(function (requisitos) {	
-			let requisito=`${requisitos}`;
-			let	reply = 'Estos son los requisitos que encontre :D\n'+requisito;
-			reply=reply.replace(/\\n/g, '\n');
-			//console.log('Mensaje dentro de handleApiAiAc: ',reply);
-			sendTextMessage(sender, reply);
-
-		}, responseText)
-		let replyAdition='Para más información puedes consultar el manual de procedimientos'+
-		'😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
-		sendTextMessage(sender,replyAdition );
-
+		if(isDefined(contexts[0]) && contexts[0].name=='req-tramites_dialog_params_requisitos'){
+			requisitos.leerTramitesPre(function (requisitos) {	
+				let requisito=`${requisitos}`;
+				let	reply = 'Estos son los requisitos que encontre :D\n'+requisito;
+				reply=reply.replace(/\\n/g, '\n');
+				//console.log('Mensaje dentro de handleApiAiAc: ',reply);
+				sendTextMessage(sender, reply);
+	
+			}, responseText)
+			let replyAdition='Para más información puedes consultar el manual de procedimientos'+
+			'😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
+			sendTextMessage(sender,replyAdition);	
+		}
+		sendTextMessage(sender, responseText);
+		
 		break;
-
 		case "iphone_colors":
 			colors.readAllColors(function(allColors){
 				let allColorsString=allColors.join(', ');
