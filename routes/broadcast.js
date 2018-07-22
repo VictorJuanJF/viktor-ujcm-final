@@ -29,8 +29,9 @@ router.post('/dashboard', function (req, res) {
      datosProcedimiento[2] = req.body.responsabilidad;
      datosProcedimiento[3] = req.body.requisito;
      datosProcedimiento[4] = req.body.duracion;
-    requisitos.insertarTramitesPre(function(callback) {
+    requisitos.insertarTramitesPre(function(callback){
     }, datosProcedimiento);
+    res.sendStatus(200);
 });
 
 router.get('/no-access', function (req, res) {
