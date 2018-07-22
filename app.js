@@ -322,6 +322,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			requisitos.leerTramitesPre(function (requisitos) {	
 				console.log('Requisitos recibidos: ',requisitos);
 				let requisito=requisitos;
+				console.log('Se esta enviando el costo : ',requisito[0].costo);
 				let requisitoLista=requisito[0].requisito;
 				let requisitoCosto=requisito[0].costo;
 				let reply=[];
