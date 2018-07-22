@@ -330,8 +330,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			let replyAdition='Para más información puedes consultar el manual de procedimientos'+
 			'😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
 			sendTextMessage(sender,replyAdition);	
+		} else {
+			sendTextMessage(sender, responseText);
 		}
-		sendTextMessage(sender, responseText);
+		
 		
 		break;
 		case "iphone_colors":
