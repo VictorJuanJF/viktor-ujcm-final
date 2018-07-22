@@ -7,10 +7,14 @@ const fbService = require('../fb-service/fb-service');
 
 router.get('/', function (req, res) {
 //     //res.send('Hello world, I am a chat bot')
-res.render('login');
+res.render('index');
 //     res.sendFile(__dirname   +'/index.html');
 });
 
+
+router.get('/dashboard', function (req, res) {
+    res.render('dashboard');
+});
 
 router.get('/no-access', function (req, res) {
     res.render('no-access');
