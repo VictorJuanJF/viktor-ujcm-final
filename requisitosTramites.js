@@ -13,7 +13,6 @@ module.exports = {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
             }
-            console.log('Se entro a newsletterSettings de user.js');
             client
                 .query(
                     'UPDATE procedimiento_ad_pre SET newsletter=$1 WHERE fb_id=$2',
@@ -90,23 +89,30 @@ module.exports = {
     },
 
     //Update
-    insertarTramitesPre: function(callback, setting, userId) {
+    insertarTramitesPre: function(callback, datosProcedimiento) {
         var pool = new pg.Pool(config.PG_CONFIG);
+        console.log('Datos enviados a insertarTramite: ',datosProcedimiento);
         pool.connect(function(err, client, done) {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
             }
-            console.log('Se entro a newsletterSettings de user.js');
             client
                 .query(
-                    'UPDATE users SET newsletter=$1 WHERE fb_id=$2',
-                    [setting, userId],
+                    'INSERT INTO procedimiento_ad_pre (nombre,objetivo,responsabilidad,requisito,duracion)'+
+                    'VALUES ($1,$2,$3,$4,$5)',
+                    [
+                        datosProcedimiento[0], 
+                        datosProcedimiento[1],
+                        datosProcedimiento[2],
+                        datosProcedimiento[3],
+                        datosProcedimiento[4],
+                    ],
                     function(err, result) {
                         if (err) {
                             console.log(err);
-                            callback(false);
+                            callback([]);
                         } else {
-                            callback(true);
+                            callback([]);
                         };
                         done();
                     });

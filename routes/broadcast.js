@@ -21,6 +21,18 @@ router.get('/dashboard', function (req, res) {
     
 });
 
+router.post('/dashboard', function (req, res) {
+
+    var datosProcedimiento=[];
+     datosProcedimiento[0] = req.body.nombre;
+     datosProcedimiento[1] = req.body.objetivo;
+     datosProcedimiento[2] = req.body.responsabilidad;
+     datosProcedimiento[3] = req.body.requisito;
+     datosProcedimiento[4] = req.body.duracion;
+    requisitos.insertarTramitesPre(function(callback) {
+    }, datosProcedimiento);
+});
+
 router.get('/no-access', function (req, res) {
     res.render('no-access');
 });
