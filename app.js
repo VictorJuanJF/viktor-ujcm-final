@@ -321,7 +321,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		if(!isDefined(contexts[0]) || contexts[0].name!='req-tramites_dialog_params_requisitos'){
 			requisitos.leerTramitesPre(function (requisitos) {	
 				console.log('Requisitos recibidos: ',`${requisitos}`);
-				let requisito=`${requisitos}`;
+				let requisito=requisitos;
 				let requisitoLista=requisito[0]['requisito'];
 				let requisitoCosto=requisito[0]['costo'];
 				let reply=[];
