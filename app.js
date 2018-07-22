@@ -322,8 +322,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			requisitos.leerTramitesPre(function (requisitos) {	
 				console.log('Requisitos recibidos: ',`${requisitos}`);
 				let requisito=requisitos;
-				let requisitoLista=requisito[0]['requisito'];
-				let requisitoCosto=requisito[1]['costo'];
+				let requisitoLista=requisito['requisito'];
+				let requisitoCosto=requisito['costo'];
 				let reply=[];
 				reply[0] = 'Estos son los requisitos que encontre para '+responseText+' 😉 \n'+requisitoLista;
 				reply[0]=reply[0].replace(/\\n/g, '\n');
