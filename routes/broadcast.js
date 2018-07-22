@@ -14,7 +14,7 @@ res.render('index');
 
 
 router.get('/dashboard', function (req, res) {
-    requisitos.leerTramitesPre(function(listadoRequisitos){
+    requisitos.listadoTramites(function(listadoRequisitos){
         req.session.listadoRequisitos=listadoRequisitos;
         res.render('dashboard',{listadoRequisitos:listadoRequisitos});
     });
