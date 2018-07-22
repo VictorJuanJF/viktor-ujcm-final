@@ -326,13 +326,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 				let reply=[];
 				reply[0] = 'Estos son los requisitos que encontre para'+responseText+' 😉 \n'+requisitoLista;
 				reply[0]=reply[0].replace(/\\n/g, '\n');
-				reply[1]='El costo para este trámite es: ';+requisitoCosto
+				reply[1]='El costo para este trámite es: ';+requisitoCosto;
 				reply[2]='Tambien puedes ver el manual de procedimientos '+
 			'😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
-			}, responseText)
 			for(var i=0;i<reply.length;i++){
 				sendTextMessage(sender,reply[i]);
 			}
+			}, responseText)
 				
 		} else {
 			sendTextMessage(sender, responseText);
