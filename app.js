@@ -911,6 +911,9 @@ function sendAccountLinking(recipientId) {
 function greetUserText(userId) {
 	//first read user firstname
 	
+	userService.addUser(function(user){
+		usersMap.set(userId, user);
+	}, userId);
 	let user=usersMap.get(userId);
 	
 	sendTextMessage(userId, "Hola " + user.first_name + '😛'+'soy Smart de la UJCM! 😀😀 '+
@@ -927,10 +930,9 @@ function greetUserText(userId) {
 				// 		"payload":"rechazo_terminos"
 				// 	}
 				// ];		
-			// sendQuickReply(sender,responseText,replies);
-
-				
+			// sendQuickReply(sender,responseText,replies);			
 }
+
 
 /*
  * Call the Send API. The message data goes in the body. If successful, we'll 
