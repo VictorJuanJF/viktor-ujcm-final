@@ -911,13 +911,12 @@ function sendAccountLinking(recipientId) {
 function greetUserText(callback,userId) {
 	//first read user firstname
 	console.log('Se entro a greetUserText con id: ',userId);
-	setSessionAndUser(userId)
-	// userService.addUser(function(user){
-	// 	usersMap.set(userId, user);
-	// }, userId);
-	let user=usersMap.get(userId);
-	sendTextMessage(userId,'Que tal ' + user.first_name + ' 😛 '+'soy Smart de la UJCM! 😀😀 '+
-				'puedo responder las dudas que tengas pero primero necesito que aceptes estos términos y condiciones 😏');
+	userService.addUser(function(user){
+		sendTextMessage(userId,'Que tal ' + user.first_name + ' 😛 '+'soy Smart de la UJCM! 😀😀 '+
+		'puedo responder las dudas que tengas pero primero necesito que aceptes estos términos y condiciones 😏');
+	}, userId);
+	//let user=usersMap.get(userId);
+	
 				// let replies=[
 				// 	{
 				// 		"content_type":"text",
