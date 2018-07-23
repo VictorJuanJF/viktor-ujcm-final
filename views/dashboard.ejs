@@ -67,13 +67,14 @@
 
   <div class="container">
     <h1>Listado de Procedimientos Administrativos Pregrado 2018</h1>
-    <div class="list-group">
+    <ul class="list-group">
       <% listadoRequisitos.forEach(function(listadoRequisitos) { %>
-        <a href="#" class="list-group-item">
+        <li class="list-group-item">
+            <span class="badge"><%= listadoRequisitos.id_procedimiento_ad_pre %></span>
           <%= listadoRequisitos.nombre %>
-        </a>
+        </li>
         <% }) %>
-    </div>
+    </ul>
   </div>
 
   <footer>

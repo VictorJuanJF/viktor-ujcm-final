@@ -265,31 +265,32 @@ function handleMessageAttachments(messageAttachments, senderID){
 function handleQuickReply(senderID, quickReply, messageId) {
 	var quickReplyPayload = quickReply.payload;
 	switch(quickReplyPayload){
-		case 'EVENTOS_UNO_X_SEMANA':
-			userService.newsletterSettings(function(updated){
-				if(updated){
-					sendTextMessage(senderID,"Gracias por suscribirte :D" +
-					"Si ya no quieres estar suscrito solo escribe : 'darse de baja'");
-				} else {
-					sendTextMessage(senderID,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
+		//Broadcast para despues
+		// case 'EVENTOS_UNO_X_SEMANA':
+		// 	userService.newsletterSettings(function(updated){
+		// 		if(updated){
+		// 			sendTextMessage(senderID,"Gracias por suscribirte :D" +
+		// 			"Si ya no quieres estar suscrito solo escribe : 'darse de baja'");
+		// 		} else {
+		// 			sendTextMessage(senderID,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
 					
-				}
-			},1,senderID);
-		break;
-		case 'EVENTOS_UNO_X_DIA':
-		userService.newsletterSettings(function(updated){
-			if(updated){
-					sendTextMessage(senderID,"Gracias por suscribirte :D" +
-					"Si ya no quieres estar suscrito solo escribe : 'darse de baja'");
-				} else {
-					sendTextMessage(senderID,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
+		// 		}
+		// 	},1,senderID);
+		// break;
+		// case 'EVENTOS_UNO_X_DIA':
+		// userService.newsletterSettings(function(updated){
+		// 	if(updated){
+		// 			sendTextMessage(senderID,"Gracias por suscribirte :D" +
+		// 			"Si ya no quieres estar suscrito solo escribe : 'darse de baja'");
+		// 		} else {
+		// 			sendTextMessage(senderID,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
 					
-				}
-			},2,senderID);
-			break;
+		// 		}
+		// 	},2,senderID);
+		// 	break;
 		default:
-		sendToApiAi(senderID, quickReplyPayload);
-		break;
+		 sendToApiAi(senderID, quickReplyPayload);
+		 break;
 	}
 	console.log("Quick reply for message %s with payload %s", messageId, quickReplyPayload);
 	//send payload to api.ai
@@ -305,26 +306,25 @@ function handleEcho(messageId, appId, metadata) {
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	console.log('Se entro a handleApiAiAction');
 	switch (action) {
-		case "unsubscribe":
-		userService.newsletterSettings(function(updated){
-			if(updated){
-				sendTextMessage(sender,"Ya no estas suscrito, puedes activar esta opcion despues");
+		//Futura implementacion broadcast cuando se apruebe el bot
+		// case "unsubscribe":
+		// userService.newsletterSettings(function(updated){
+		// 	if(updated){
+		// 		sendTextMessage(sender,"Ya no estas suscrito, puedes activar esta opcion despues");
 			
-			} else {
-				sendTextMessage(sender,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
+		// 	} else {
+		// 		sendTextMessage(sender,"De momento el servicio esta inhabilitado, intenta mas tarde 😓");
 				
-			}
-		},0,sender);
+		// 	}
+		// },0,sender);
 
-		break;
+		// break;
 		case "req-tramites":
 		if(!isDefined(contexts[0]) || contexts[0].name!='req-tramites_dialog_params_requisitos'){
 			requisitos.leerTramitesPre(function (requisitos) {	
-				console.log('Requisitos recibidos: ',requisitos);
 				let requisito=requisitos;
-				console.log('Se esta enviando el costo : ',requisito[0].costo);
 				let reply=[];
-				reply[0] = 'Estos son los requisitos que encontre para '+responseText+' 😉 \n'+requisito[0].requisito;
+				reply[0] = 'Estos son los requisitos que encontré para '+responseText+' 😉 \n'+requisito[0].requisito;
 				reply[0]=reply[0].replace(/\\n/g, '\n');
 				reply[1]='El costo para este trámite es: '+requisito[0].costo;
 				reply[2]='Tambien puedes ver el manual de procedimientos '+
@@ -340,14 +340,14 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		
 		
 		break;
-		case "iphone_colors":
-			colors.readAllColors(function(allColors){
-				let allColorsString=allColors.join(', ');
-				let reply=`Iphone 8 is avaliable in ${allColorsString} . What is your favorite color?`;
-				sendTextMessage(sender,reply);
-			})
+		// case "iphone_colors":
+		// 	colors.readAllColors(function(allColors){
+		// 		let allColorsString=allColors.join(', ');
+		// 		let reply=`Iphone 8 is avaliable in ${allColorsString} . What is your favorite color?`;
+		// 		sendTextMessage(sender,reply);
+		// 	})
 
-		break;
+		// break;
 		
 		case "detailed-application":
 			console.log('Tu nombre es : ',contexts[0].parameters['user-name']);
@@ -913,8 +913,21 @@ function greetUserText(userId) {
 	
 	let user=usersMap.get(userId);
 	
-	sendTextMessage(userId, "Hola! " + user.first_name + '!'+'soy el bot de la UJCM!'+
-				'y puedo responder las preguntas que gustes. En que puedo ayudarte?');
+	sendTextMessage(userId, "Hola " + user.first_name + '😛'+'soy Smart de la UJCM! 😀😀 '+
+				'puedo responder las dudas que tengas pero primero necesito que aceptes estos términos y condiciones 😏');
+				// let replies=[
+				// 	{
+				// 		"content_type":"text",
+				// 		"title":"Acepto los Términos",
+				// 		"payload":"acepto_terminos"
+				// 	},
+				// 	{
+				// 		"content_type":"text",
+				// 		"title":"Tal vez otro día ",
+				// 		"payload":"rechazo_terminos"
+				// 	}
+				// ];		
+			// sendQuickReply(sender,responseText,replies);
 
 				
 }
@@ -992,11 +1005,12 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
-		case 'EVENTOS_UJCM':
-			suscribirseEventosUJCM(senderID);
+		//case 'EVENTOS_UJCM':
+		//	suscribirseEventosUJCM(senderID);
 
-		break;
-		case 'GET_STARTED':
+	//	break;
+		case '<GET_STARTED_PAYLOAD>':
+		console.log('Se entro a GET_STARTED');
 			greetUserText(senderID);
 
 			break;

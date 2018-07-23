@@ -70,7 +70,7 @@ module.exports = {
             }
             client
                 .query(
-                    'SELECT * FROM public.procedimiento_ad_pre',
+                    'SELECT * FROM procedimiento_ad_pre ORDER BY NOMBRE ASC',
                     function(err, result) {
                         //
                         if (err) {
