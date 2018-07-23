@@ -930,7 +930,7 @@ function greetUserText(callback,userId) {
 				// 	}
 				// ];		
 			// sendQuickReply(sender,responseText,replies);		
-	callback(response);	
+	callback(userId);	
 }
 
 
@@ -1013,10 +1013,10 @@ function receivedPostback(event) {
 
 	//	break;
 		case '<GET_STARTED_PAYLOAD>':
-		console.log('Se entro a GET_STARTED');
+		console.log('Se entro a GET_STARTED: ',senderID);
 
-			greetUserText(function(callback){
-				sendToApiAi(senderID,'Empezar');
+			greetUserText(function(userID){
+				sendToApiAi(userID,"Empezar");
 			},senderID);
 
 			break;
