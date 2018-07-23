@@ -910,6 +910,7 @@ function sendAccountLinking(recipientId) {
 
 function greetUserText(callback,userId) {
 	//first read user firstname
+	console.log('Se entro a greetUserText con id: ',userId);
 	setSessionAndUser(userId)
 	// userService.addUser(function(user){
 	// 	usersMap.set(userId, user);
@@ -1013,6 +1014,7 @@ function receivedPostback(event) {
 
 	//	break;
 		case '<GET_STARTED_PAYLOAD>':
+		console.log('Se entro a GET_STARTED fuera de callback: ',senderID);
 			greetUserText(function(userID){
 				console.log('Se entro a GET_STARTED: ',senderID);
 				console.log('Se entro a GET_STARTED user ID: ',userID);

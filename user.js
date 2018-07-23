@@ -18,9 +18,6 @@ module.exports = {
 
                 var user = JSON.parse(body);
                 console.log('Se entro a addUser de user.js');
-                console.log('Cantidad Caracteres usuario ',user.first_name.length);
-
-
                 if (user.first_name.length > 0) {
 
                     var pool = new pg.Pool(config.PG_CONFIG);
