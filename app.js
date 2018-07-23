@@ -1008,7 +1008,7 @@ function receivedPostback(event) {
 			// 	sendToApiAi(userID,"Empezar");
 			// 	setTimeout()
 			// },senderID);
-			sendToApiAi(userID,"Empezar");
+			sendToApiAi(senderID,"Empezar");
 			break;
 		default:
 			//unindentified payload
