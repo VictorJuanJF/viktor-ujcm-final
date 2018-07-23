@@ -916,7 +916,7 @@ function greetUserText(callback,userId) {
 	// 	usersMap.set(userId, user);
 	// }, userId);
 	let user=usersMap.get(userId);
-	sendTextMessage(userID,'Que tal ' + user.first_name + ' 😛 '+'soy Smart de la UJCM! 😀😀 '+
+	sendTextMessage(userId,'Que tal ' + user.first_name + ' 😛 '+'soy Smart de la UJCM! 😀😀 '+
 				'puedo responder las dudas que tengas pero primero necesito que aceptes estos términos y condiciones 😏');
 				// let replies=[
 				// 	{
