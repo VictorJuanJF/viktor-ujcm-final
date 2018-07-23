@@ -221,7 +221,7 @@ function receivedMessage(event) {
 	var timeOfMessage = event.timestamp;
 	var message = event.message;
 
-	setSessionAndUser(senderID);
+	//setSessionAndUser(senderID);
 	
 	//console.log("Received message for user %d and page %d at %d with message:", senderID, recipientID, timeOfMessage);
 	//console.log(JSON.stringify(message));
@@ -908,15 +908,14 @@ function sendAccountLinking(recipientId) {
 }
 
 
-function greetUserText(userId) {
+function greetUserText(callback,userId) {
 	//first read user firstname
-	
-	userService.addUser(function(user){
-		usersMap.set(userId, user);
-	}, userId);
+	setSessionAndUser(senderID)
+	// userService.addUser(function(user){
+	// 	usersMap.set(userId, user);
+	// }, userId);
 	let user=usersMap.get(userId);
-	
-	sendTextMessage(userId, "Hola " + user.first_name + '😛'+'soy Smart de la UJCM! 😀😀 '+
+	sendTextMessage(userID,'Que tal ' + user.first_name + ' 😛 '+'soy Smart de la UJCM! 😀😀 '+
 				'puedo responder las dudas que tengas pero primero necesito que aceptes estos términos y condiciones 😏');
 				// let replies=[
 				// 	{
@@ -930,8 +929,10 @@ function greetUserText(userId) {
 				// 		"payload":"rechazo_terminos"
 				// 	}
 				// ];		
-			// sendQuickReply(sender,responseText,replies);			
+			// sendQuickReply(sender,responseText,replies);		
+	callback(response);	
 }
+
 
 
 /*
@@ -1001,7 +1002,7 @@ function receivedPostback(event) {
 	var recipientID = event.recipient.id;
 	var timeOfPostback = event.timestamp;
 
-	setSessionAndUser(senderID);
+	//setSessionAndUser(senderID);
 	// The 'payload' param is a developer-defined field which is set in a postback 
 	// button for Structured Messages. 
 	var payload = event.postback.payload;
@@ -1013,7 +1014,10 @@ function receivedPostback(event) {
 	//	break;
 		case '<GET_STARTED_PAYLOAD>':
 		console.log('Se entro a GET_STARTED');
-			greetUserText(senderID);
+
+			greetUserText(function(callback){
+				sendToApiAi(senderID,'Empezar');
+			},senderID);
 
 			break;
 		case 'JOB_APPLY':
