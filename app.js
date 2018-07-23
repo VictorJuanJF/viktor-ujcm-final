@@ -304,7 +304,7 @@ function handleEcho(messageId, appId, metadata) {
 }
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
-	console.log('Se entro a handleApiAiAction');
+	console.log('Se entro a handleApiAiAction:');
 	switch (action) {
 		//Futura implementacion broadcast cuando se apruebe el bot
 		// case "unsubscribe":
@@ -458,8 +458,8 @@ function handleMessage(message, sender) {
 				}
 				replies.push(reply);
 			}
-			console.log('Enviar al usario titulo quick reply: ',message.title);
-			console.log('Enviar al usario replies: ',replies);
+			console.log('Enviar al usuario titulo quick reply: ',message.title);
+			console.log('Enviar al usuario replies: ',replies);
 			sendQuickReply(sender, message.title, replies);
 			break;
 		case 3: //image
@@ -909,28 +909,16 @@ function sendAccountLinking(recipientId) {
 
 
 function greetUserText(callback,userId) {
-	//first read user firstname
-	console.log('Se entro a greetUserText con id: ',userId);
-	userService.addUser(function(user){
-		sendTextMessage(userId,'Que tal ' + user.first_name + ' 😛 '+'soy Smart de la UJCM! 😀😀 '+
-		'puedo responder las dudas que tengas pero primero necesito que aceptes estos términos y condiciones 😏');
-	}, userId);
-	//let user=usersMap.get(userId);
+	// //first read user firstname
+	// console.log('Se entro a greetUserText con id: ',userId);
+	// userService.addUser(function(user){
+	// 	sendTextMessage(userId,'Que tal ' + user.first_name + ' 😛 '+'soy Smart de la UJCM! 😀😀 '+
+	// 	'puedo responder las dudas que tengas pero primero necesito que aceptes estos términos y condiciones 😏');
+	// }, userId);
+	// //let user=usersMap.get(userId);
 	
-				// let replies=[
-				// 	{
-				// 		"content_type":"text",
-				// 		"title":"Acepto los Términos",
-				// 		"payload":"acepto_terminos"
-				// 	},
-				// 	{
-				// 		"content_type":"text",
-				// 		"title":"Tal vez otro día ",
-				// 		"payload":"rechazo_terminos"
-				// 	}
-				// ];		
-			// sendQuickReply(sender,responseText,replies);		
-	callback(userId);	
+	
+	// callback(userId);	
 }
 
 
@@ -1014,19 +1002,14 @@ function receivedPostback(event) {
 	//	break;
 		case '<GET_STARTED_PAYLOAD>':
 		console.log('Se entro a GET_STARTED fuera de callback: ',senderID);
-			greetUserText(function(userID){
-				console.log('Se entro a GET_STARTED: ',senderID);
-				console.log('Se entro a GET_STARTED user ID: ',userID);
-				sendToApiAi(userID,"Empezar");
-			},senderID);
-
+			// greetUserText(function(userID){
+			// 	console.log('Se entro a GET_STARTED: ',senderID);
+			// 	console.log('Se entro a GET_STARTED user ID: ',userID);
+			// 	sendToApiAi(userID,"Empezar");
+			// 	setTimeout()
+			// },senderID);
+			sendToApiAi(userID,"Empezar");
 			break;
-		case 'JOB_APPLY':
-			sendToApiAi(senderID,"job openings");
-			break;
-		case 'CHAT':
-			sendTextMessage(senderID,"Me gusta chatear contigo tambien, tienes otras preguntas para mi?😊")
-		break;
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific? esto es para postback");
