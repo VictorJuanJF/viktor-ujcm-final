@@ -910,7 +910,7 @@ function sendAccountLinking(recipientId) {
 
 function greetUserText(callback,userId) {
 	//first read user firstname
-	setSessionAndUser(senderID)
+	setSessionAndUser(userId)
 	// userService.addUser(function(user){
 	// 	usersMap.set(userId, user);
 	// }, userId);
@@ -1013,9 +1013,9 @@ function receivedPostback(event) {
 
 	//	break;
 		case '<GET_STARTED_PAYLOAD>':
-		console.log('Se entro a GET_STARTED: ',senderID);
-
 			greetUserText(function(userID){
+				console.log('Se entro a GET_STARTED: ',senderID);
+				console.log('Se entro a GET_STARTED user ID: ',userID);
 				sendToApiAi(userID,"Empezar");
 			},senderID);
 
