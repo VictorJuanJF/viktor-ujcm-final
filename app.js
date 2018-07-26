@@ -533,8 +533,11 @@ function handleApiAiResponse(sender, response) {
 	let contexts = response.result.contexts;
 	let parameters = response.result.parameters;
 
+	console.log('respondeText: ',responseText);
+	console.log('responseData: ',responseData);
+	console.log('messages: ',messages);
 	console.log('Se paso por handleApiAiResponse');
-	console.log('messages.length = ',messages.length);	
+	//console.log('messages.length = ',messages.length);	
 
 	sendTypingOff(sender);
 
@@ -613,7 +616,7 @@ function sendToApiAi(sender, text) {
 
 function sendTextMessage(recipientId, text) {
 	console.log('se activo sendTextMessage');
-	console.log('El mensaje para el usuario es: ',text);
+	//console.log('El mensaje para el usuario es: ',text);
 	var messageData = {
 		recipient: {
 			id: recipientId
@@ -622,6 +625,7 @@ function sendTextMessage(recipientId, text) {
 			text: text
 		}
 	}
+	console.log('El mensaje para el usuario es: ',messageData);
 	callSendAPI(messageData);
 }
 
