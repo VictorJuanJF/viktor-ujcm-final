@@ -202,14 +202,11 @@ function setSessionAndUser(senderID){
 		sessionIds.set(senderID, uuid.v1());
 	}
 
-	//if(!usersMap.has(senderID)){
-	//	userData(function(user){
-	//		usersMap.set(senderID,user);
-	//	},senderID);
-	//}
-	userService.addUser(function(user){
-		usersMap.set(senderID, user);
-	}, senderID);
+	if (!usersMap.has(senderID)) {
+		userService.addUser(function(user){
+			usersMap.set(senderID, user);
+		}, senderID);
+	}
 }
 
 function receivedMessage(event) {
@@ -221,7 +218,7 @@ function receivedMessage(event) {
 	var timeOfMessage = event.timestamp;
 	var message = event.message;
 
-	//setSessionAndUser(senderID);
+	setSessionAndUser(senderID);
 	
 	//console.log("Received message for user %d and page %d at %d with message:", senderID, recipientID, timeOfMessage);
 	//console.log(JSON.stringify(message));
