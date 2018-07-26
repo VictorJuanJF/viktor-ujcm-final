@@ -317,29 +317,28 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		// break;
 		case "req-tramites":
-		if(isDefined(requisito)){
-			if(!isDefined(contexts[0]) || contexts[0].name!='req-tramites_dialog_params_requisitos'){
-				requisitos.leerTramitesPre(function (requisitos) {	
+		if(!isDefined(contexts[0]) || contexts[0].name!='req-tramites_dialog_params_requisitos'){
+			requisitos.leerTramitesPre(function (requisitos) {
+				if(isDefined(requisitos)){
 					let requisito=requisitos;
-					let reply=[];
-					reply[0] = 'Estos son los requisitos que encontré para '+responseText+' 😉 \n'+requisito[0].requisito;
-					reply[0]=reply[0].replace(/\\n/g, '\n');
-					reply[1]='El costo para este trámite es: '+requisito[0].costo;
-					reply[2]='Tambien puedes ver el manual de procedimientos '+
-				'😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
-				for(var i=0;i<reply.length;i++){
-					sendTextMessage(sender,reply[i]);
-				}
-				}, responseText)
-					
-			} else {
-				sendTextMessage(sender, responseText); //Para que pida requisitos
+				let reply=[];
+				reply[0] = 'Estos son los requisitos que encontré para '+responseText+' 😉 \n'+requisito[0].requisito;
+				reply[0]=reply[0].replace(/\\n/g, '\n');
+				reply[1]='El costo para este trámite es: '+requisito[0].costo;
+				reply[2]='Tambien puedes ver el manual de procedimientos '+
+			'😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
+			for(var i=0;i<reply.length;i++){
+				sendTextMessage(sender,reply[i]);
 			}
+				}	else {
+					sendTextMessage(sender, 'No encontre nada relacionado a lo que buscas 🤐'); //Por si no se encontro en la BD
+				}
+				
+			}, responseText)
+				
+		} else {
+			sendTextMessage(sender, responseText); //Para que pida requisitos
 		}
-		else{
-			sendTextMessage(sender, 'Ahora indícame el nombre del requisito 😎'); //Para que pida requisitos
-		}
-		
 		
 		
 		break;
