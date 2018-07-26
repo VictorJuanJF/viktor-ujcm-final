@@ -317,7 +317,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
 		// break;
 		case "req-tramites":
-		if(!isDefined(contexts[0]) || contexts[0].name!='req-tramites_dialog_params_requisitos'){
+		if(contexts[0].name='req-Tramites' || contexts[0].name!='req-tramites_dialog_params_requisitos'){
 			requisitos.leerTramitesPre(function (requisitos) {	
 				let requisito=requisitos;
 				let reply=[];
