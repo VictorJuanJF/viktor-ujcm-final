@@ -52,9 +52,10 @@ module.exports = {
                         } 
                             console.log('Se esta enviando: ',result.rows);
                             if(result.rows.length>0){
-                                callback('INDEFINIDO');
-                            } else {
                                 callback(result.rows);
+                                
+                            } else {
+                                callback('INDEFINIDO');
                             }
                             
                             done();
