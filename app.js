@@ -532,7 +532,9 @@ function handleApiAiResponse(sender, response) {
 	let contexts = response.result.contexts;
 	let parameters = response.result.parameters;
 
-	console.log('Se paso por handleApiAiResponse');
+	console.log('Se paso por handleApiAiResposnse');
+	console.log('responseData: ',responseData);
+	console.log('messages: ',messages);
 	//console.log('messages.length = ',messages.length);	
 
 	sendTypingOff(sender);
