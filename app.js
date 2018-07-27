@@ -445,7 +445,6 @@ function handleMessage(message, sender) {
 	switch (message.type) {
 		case 0: //text
 			console.log('se entro a handleMessage case 0');
-			console.log('Enviar al usuario: ',message.speech);
 			sendTextMessage(sender, message.speech);
 			break;
 		case 2: //quick replies
@@ -533,9 +532,6 @@ function handleApiAiResponse(sender, response) {
 	let contexts = response.result.contexts;
 	let parameters = response.result.parameters;
 
-	console.log('respondeText: ',responseText);
-	console.log('responseData: ',responseData);
-	console.log('messages: ',messages);
 	console.log('Se paso por handleApiAiResponse');
 	//console.log('messages.length = ',messages.length);	
 
@@ -950,7 +946,6 @@ function callSendAPI(messageData) {
 			var recipientId = body.recipient_id;
 			var messageId = body.message_id;
 			console.log('se paso por callSendAPI');
-			console.log('el json a enviar es: ',messageData);
 			
 			if (messageId) {
 				console.log("Successfully sent message with id %s to recipient %s",
@@ -1039,7 +1034,7 @@ function receivedPostback(event) {
 			break;
 		//admissions
 		case 'admissions_payload':
-			sendTextMessage(senderID,'¿Qué quieres saber sobre el proceso de admisión 2018-II? pregúntame lo que gutes 😎');
+			sendTextMessage(senderID,'¿Qué quieres saber sobre el proceso de admisión 2018-II? pregúntame lo que gustes 😎');
 		break;
 
 	}
