@@ -930,7 +930,7 @@ function greetUserText(callback,userId) {
 
 
 /*
- * Call the Send API. The message data goes in the body. If successful, we'll 
+ * Call the Send API. The message data go	es in the body. If successful, we'll 
  * get the message id in a response 
  *
  */
@@ -1015,7 +1015,20 @@ function receivedPostback(event) {
 			// 	setTimeout()
 			// },senderID);
 			sendToApiAi(senderID,"Empezar");
+			
 			break;
+		//Informacion
+		case 'address_payload':
+		sendTextMessage(senderID,'Estamos ubicados en:\n ✅Urb. Quinta Hidalgo - Coronel Vidal N° 750\nO también puedes ir a:\n✅Rómulo Cuneo Vidal Nro 1002 (Kolping)');
+		break;
+		case 'telephone_payload':
+			sendTextMessage(senderID,'Puedes llamar a este número 052-601273 😏');
+		break;
+		//Procedures
+		case 'procedures_payload':
+			sendTextMessage(senderID,'Dime sobre qué trámite quieres saber 😸');
+		break;
+
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific? esto es para postback");
