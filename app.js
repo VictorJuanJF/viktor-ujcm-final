@@ -319,7 +319,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 		case "req-tramites":
 		if(!isDefined(contexts[0]) || contexts[0].name!='req-tramites_dialog_params_requisitos'){
 			requisitos.leerTramitesPre(function (requisitos) {
-				if(requisitos[0].requisito!=[]){
+				console.log('lo que encontre en la bd es: ',requisitos);
+				if(requisitos[0]!=[]){
 					let requisito=requisitos;
 				let reply=[];
 				reply[0] = 'Estos son los requisitos que encontré para '+responseText+' 😉 \n'+requisito[0].requisito;
