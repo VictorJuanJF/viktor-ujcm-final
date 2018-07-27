@@ -1006,6 +1006,10 @@ function receivedPostback(event) {
 		//	suscribirseEventosUJCM(senderID);
 
 	//	break;
+		//persistent menu
+		case 'options_payload':
+			sendToApiAi(senderID,"Ver Opciones");
+		break;
 		case '<GET_STARTED_PAYLOAD>':
 		console.log('Se entro a GET_STARTED fuera de callback: ',senderID);
 			// greetUserText(function(userID){
