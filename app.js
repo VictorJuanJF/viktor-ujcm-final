@@ -478,7 +478,7 @@ function handleMessage(message, sender) {
 				message: message.payload.facebook
 
 			};
-			console.log('Enviando al usuario messageData: ',message.payload.facebook.elements);
+			console.log('Enviando al usuario messageData: ',message.payload.facebook);
 			callSendAPI(messageData);
 
 			break;
@@ -1020,10 +1020,10 @@ function receivedPostback(event) {
 			break;
 		//Information
 		case 'address_payload':
-		sendTextMessage(senderID,'Estamos ubicados en:\n ✅Urb. Quinta Hidalgo - Coronel Vidal N° 750\nO también puedes ir a:\n✅Rómulo Cuneo Vidal Nro 1002 (Kolping)');
+		sendTextMessage(senderID,'Direcciones');
 		break;
 		case 'telephone_payload':
-			sendTextMessage(senderID,'Puedes llamar a este número 052-601273 😏');
+			sendTextMessage(senderID,'numero de telefono');
 		break;
 		//Procedures
 		case 'procedures_payload':
