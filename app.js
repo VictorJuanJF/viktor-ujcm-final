@@ -1021,7 +1021,7 @@ function receivedPostback(event) {
 			sendToApiAi(senderID,"Empezar");
 			
 			break;
-		//Informacion
+		//Information
 		case 'address_payload':
 		sendTextMessage(senderID,'Estamos ubicados en:\n ✅Urb. Quinta Hidalgo - Coronel Vidal N° 750\nO también puedes ir a:\n✅Rómulo Cuneo Vidal Nro 1002 (Kolping)');
 		break;
@@ -1037,6 +1037,10 @@ function receivedPostback(event) {
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific? esto es para postback");
 			break;
+		//admissions
+		case 'admissions_payload':
+			sendTextMessage(senderID,'¿Qué quieres saber sobre el proceso de admisión 2018-II? pregúntame lo que gutes 😎');
+		break;
 
 	}
 
