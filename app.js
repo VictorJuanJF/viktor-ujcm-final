@@ -321,7 +321,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 			requisitos.leerTramitesPre(function (requisitos) {
 				console.log('lo que encontre en la bd es: ',requisitos);
 				console.log('esto tambien encontre: ',requisitos[0]);
-				if(requisitos[0]!='[]' || requisitos=='[]'){
+				if(requisitos[0]!='INDEFINIDO'){
 					let requisito=requisitos;
 				let reply=[];
 				reply[0] = 'Estos son los requisitos que encontré para '+responseText+' 😉 \n'+requisito[0].requisito;

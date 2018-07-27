@@ -51,7 +51,12 @@ module.exports = {
                             callback('');
                         } 
                             console.log('Se esta enviando: ',result.rows);
-                            callback(result.rows);
+                            if(result.rows='[]'){
+                                callback('INDEFINIDO');
+                            } else {
+                                callback(result.rows);
+                            }
+                            
                             done();
                         
                     });
