@@ -1020,10 +1020,10 @@ function receivedPostback(event) {
 			break;
 		//Information
 		case 'address_payload':
-		sendTextMessage(senderID,'Direcciones');
+		sendToApiAi(senderID,'Direcciones');
 		break;
 		case 'telephone_payload':
-			sendTextMessage(senderID,'numero de telefono');
+		sendToApiAi(senderID,'numero de telefono');
 		break;
 		//Procedures
 		case 'procedures_payload':
