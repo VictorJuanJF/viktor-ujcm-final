@@ -478,7 +478,7 @@ function handleMessage(message, sender) {
 				message: message.payload.facebook
 
 			};
-			console.log('Enviando al usuario messageData: ',message.payload.facebook);
+			console.log('Enviando al usuario messageData: ',message.payload.facebook.elements);
 			callSendAPI(messageData);
 
 			break;
