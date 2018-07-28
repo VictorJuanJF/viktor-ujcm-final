@@ -536,6 +536,7 @@ function handleApiAiResponse(sender, response) {
 
 	console.log('Se paso por handleApiAiResposnse');
 	console.log('responseData: ',responseData);
+	console.log('response: ',response);
 	console.log('messages: ',messages);
 	//console.log('messages.length = ',messages.length);	
 
