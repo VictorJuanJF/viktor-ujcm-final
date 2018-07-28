@@ -1035,23 +1035,23 @@ function receivedPostback(event) {
 
 		//admissions
 		case 'paso1_pre_payload':
-			sendTextMessage(senderID,'paso1_pre_payload');
+		sendToApiAi(senderID,'paso1_pre_payload');
 		break;
 
 		case 'paso2_pre_payload':
-			sendTextMessage(senderID,'paso2_pre_payload');
+		sendToApiAi(senderID,'paso2_pre_payload');
 		break;
 
 		case 'paso3_pre_payload':
-			sendTextMessage(senderID,'paso3_pre_payload');
+		sendToApiAi(senderID,'paso3_pre_payload');
 		break;
 
 		case 'paso4_pre_payload':
-			sendTextMessage(senderID,'paso4_pre_payload');
+		sendToApiAi(senderID,'paso4_pre_payload');
 		break;
 
 		case 'ver_mas_pre_payload':
-			sendTextMessage(senderID,'ver_mas_pre_payload');
+		sendToApiAi(senderID,'ver_mas_pre_payload');
 		break;
 
 
