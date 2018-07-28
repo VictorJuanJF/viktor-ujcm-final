@@ -535,9 +535,6 @@ function handleApiAiResponse(sender, response) {
 	let parameters = response.result.parameters;
 
 	console.log('Se paso por handleApiAiResposnse');
-	console.log('responseData: ',responseData);
-	console.log('response: ',response);
-	console.log('messages: ',messages);
 	//console.log('messages.length = ',messages.length);	
 
 	sendTypingOff(sender);
@@ -1036,14 +1033,33 @@ function receivedPostback(event) {
 			sendTextMessage(senderID,'Dime sobre qué trámite quieres saber 😸');
 		break;
 
+		//admissions
+		case 'paso1_pre_payload':
+			sendTextMessage(senderID,'paso1_pre_payload');
+		break;
+
+		case 'paso2_pre_payload':
+			sendTextMessage(senderID,'paso2_pre_payload');
+		break;
+
+		case 'paso3_pre_payload':
+			sendTextMessage(senderID,'paso3_pre_payload');
+		break;
+
+		case 'paso4_pre_payload':
+			sendTextMessage(senderID,'paso4_pre_payload');
+		break;
+
+		case 'ver_mas_pre_payload':
+			sendTextMessage(senderID,'ver_mas_pre_payload');
+		break;
+
+
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific? esto es para postback");
 			break;
-		//admissions
-		case 'admissions_payload':
-			sendTextMessage(senderID,'¿Qué quieres saber sobre el proceso de admisión 2018-II? pregúntame lo que gustes 😎');
-		break;
+		
 
 	}
 
