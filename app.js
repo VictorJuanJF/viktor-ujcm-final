@@ -1021,6 +1021,9 @@ function receivedPostback(event) {
 			
 			break;
 		//Information
+		case 'schedule_payload':
+		sendToApiAi(senderID,'schedule_payload');
+		break;
 		case 'address_payload':
 		sendToApiAi(senderID,'Direcciones');
 		break;
