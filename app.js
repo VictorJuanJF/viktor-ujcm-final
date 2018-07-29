@@ -1018,6 +1018,7 @@ function receivedPostback(event) {
 			sendToApiAi(senderID,"Empezar");
 			
 			break;
+		//Menu de Acciones Principales
 		//Information
 		case 'schedule_payload':
 		sendToApiAi(senderID,'schedule_payload');
@@ -1029,11 +1030,31 @@ function receivedPostback(event) {
 		sendToApiAi(senderID,'numero de telefono');
 		break;
 		//Procedures
-		case 'procedures_payload':
-			sendTextMessage(senderID,'Dime sobre qué trámite quieres saber 😸');
+		case 'manual_procedimientos_pre_payload':
+		sendToApiAi(senderID,'manual_procedimientos_pre_payload');
+		break;
+		case 'seguimiento_tramites_pre_payload':
+		sendToApiAi(senderID,'seguimiento_tramites_pre_payload');
+		break;
+		case 'requisitos_tramites_pre_payload':
+		sendToApiAi(senderID,'requisitos_tramites_pre_payload');
 		break;
 
 		//admissions
+		case 'postular_admision__payload':
+		sendToApiAi(senderID,'postular_admision__payload');
+		break;
+		case 'fechas_admision_payload':
+		sendToApiAi(senderID,'fechas_admision_payload');
+		break;
+		case 'carreras_admision_payload':
+		sendToApiAi(senderID,'carreras_admision_payload');
+		break;
+		
+
+		///////////////////////////////////////////////////////////////////////////////////////
+
+		//Parte de Admision
 		case 'paso1_pre_payload':
 		sendToApiAi(senderID,'paso1_pre_payload');
 		break;
