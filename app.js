@@ -122,7 +122,11 @@ passport.use(new FacebookStrategy({
     }
 ));
 
-app.use('/', broadcast);
+//app.use('/', broadcast);
+// Index route
+app.get('/', function (req, res) {
+	res.send('Hola! este espacio será la futura Pagina Web de Mariateguino UJCM')
+});
 
 
 
