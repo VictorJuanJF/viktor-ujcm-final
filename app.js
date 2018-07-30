@@ -233,7 +233,7 @@ function receivedMessage(event) {
 	var messageAttachments = message.attachments;
 	var quickReply = message.quick_reply;
 
-	sendTypingOn(sender);
+	sendTypingOn(senderID);
 
 	if (isEcho) {
 		handleEcho(messageId, appId, metadata);
@@ -248,6 +248,7 @@ function receivedMessage(event) {
 	if (messageText) {
 		//send message to api.ai
 		console.log('Se paso por receivedMessage');
+		
 		setTimeout(sendToApiAi(senderID, messageText),2000);
 		
 	} else if (messageAttachments) {
