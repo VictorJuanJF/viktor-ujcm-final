@@ -249,7 +249,7 @@ function receivedMessage(event) {
 		//send message to api.ai
 		console.log('Se paso por receivedMessage');
 		
-		setTimeout(sendToApiAi(senderID, messageText),2000);
+		sendToApiAi(senderID, messageText);
 		
 	} else if (messageAttachments) {
 		handleMessageAttachments(messageAttachments, senderID);
