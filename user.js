@@ -39,7 +39,7 @@ module.exports = {
                                     console.log('rows: ' + result.rows.length);
                                     if (result.rows.length === 0) {
                                         let sql = 'INSERT INTO users (fb_id, first_name, last_name, profile_pic, ' +
-                                            'locale, timezone, gender,email) VALUES ($1, $2, $3, $4, $5, $6, $7,$8)';
+                                            'locale, timezone, gender,email) VALUES ($1, $2, $3, $4, $5, $6, $7)';
                                         console.log('sql: ' + sql);
                                         client.query(sql,
                                             [
@@ -49,8 +49,8 @@ module.exports = {
                                                 user.profile_pic,
                                                 user.locale,
                                                 user.timezone,
-                                                user.gender,
-                                                user.email
+                                                user.gender
+                                                
                                             ]);
                                     }
                                 }
