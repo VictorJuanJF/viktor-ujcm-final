@@ -1,7 +1,7 @@
 module.exports = {
     FB_PAGE_TOKEN: 'EAAdrWu7MRGQBAJ5HvElfet4hsb6EVqVH6pEnClLDsJpJZBPx8ue8toN4tRVy7MGMGK4lkquYvHwINRuOnduD9VA3ZCCxjsVNgD8lk9eAaS4E0ZAqOcbxqaRjhHDoCuB5J1VWtwVIED61vndDZCPVoUyR3wtOOYb2ETqvAoMYvZBYkMdVI4krD',
     FB_VERIFY_TOKEN: 'ujcmtoken',
-    API_AI_CLIENT_ACCESS_TOKEN: 'a74c5f54c76c4dda9a64cc662fbcb43a',
+    API_AI_CLIENT_ACCESS_TOKEN: 'f14fa662989c44be803acabbdae6384d',
     FB_APP_SECRET: '6cbeb0274af722f607eb501db1570714',
     FB_APP_ID: '2088363134567524',
     SERVER_URL: "https://viktor-ujcm.herokuapp.com/",
