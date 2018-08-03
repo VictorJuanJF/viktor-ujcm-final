@@ -16,68 +16,75 @@
         <div class="image"></div>
         <div class="frm">
             <h1>Registro Viktor UJCM</h1>
-            <form>
+            <form action="/" method="POST" name="myForm">
                 <div class="form-group">
-                    <label for="pwd">Selecciona tu Escuela Profesional / Posgrado:</label>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Escuela Profesional / Posgrado
-                                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation" class="dropdown-header">Pregrado</li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Derecho</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Contabilidad</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ingeniería Comercial</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ciencias Administrativas y Marketing Estratégico</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Educación Inicial</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Educación Física</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Psicología</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ingeniería de Sistemas e Informática</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Programa de Complementación Académica</a></li>
-                            <li role="presentation" class="divider"></li>
-                            <li role="presentation" class="dropdown-header">Posgrado</li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Maestría</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Doctorado</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Segunda Especialidad</a></li>
-                        </ul>
-                    </div>
-                    <div class="form-check form-check-inline">
+                    <div class="form-group">
+                        <h1>Tu ID de FB es:
+                            <%= sender %>
+                        </h1>
 
                     </div>
-                    <div class="form-check form-check-inline">
-
+                    <div class="form-group">
+                        <label for="pwd">Selecciona tu Escuela Profesional / Posgrado:</label>
+                        <select class="form-control form-control-lg">
+                            <option name="volvo" disabled selected>Escuela Profesional / Posgrado</option>
+                            <option name="volvo" disabled>Pregrado</option>
+                            <option name="Derecho">Derecho</option>
+                            <option name="Contabilidad">Contabilidad</option>
+                            <option name="Ingenieria Comercial">Ingeniería Comercial</option>
+                            <option name="Ciencias Administrativas y Marketing Estratégico">Ciencias Administrativas y Marketing Estratégico</option>
+                            <option name="Educación Inicial">Educación Inicial</option>
+                            <option name="Educación Fisica">Educación Física</option>
+                            <option name="Psicologia">Psicología</option>
+                            <option name="Ingenieria de Sistemas e Inforatica">Ingeniería de Sistemas e Informática</option>
+                            <option name="Programa de Complementacion Academica">Programa de Complementación Académica</option>
+                            <option name="volvo" disabled>Posgrado</option>
+                            <option name="Maestria">Maestría</option>
+                            <option name="Doctorado">Doctorado</option>
+                            <option name="Segunda Especialidad">Segunda Especialidad</option>
+                          </select>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Código de Estudiante:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Si no recuerdas tu código puedes colocarlo despues">
-                </div>
-                <div class="form-group">
-                    <label for="username">Nombres:</label>
-                    <input type="text" class="form-control" id="username" placeholder="Ingresa tus nombres">
-                </div>
-                <div class="form-group">
-                    <label for="username">Apellidos:</label>
-                    <input type="text" class="form-control" id="username" placeholder="Ingresa tus apellidos">
-                </div>
-                <div class="form-group">
-                    <label for="username">DNI:</label>
-                    <input type="text" class="form-control" id="username" placeholder="Ingresa tu DNI">
-                </div>
+                    <div class="form-group">
+                        <label for="pwd">Código de Estudiante:</label>
+                        <input type="text" class="form-control" name="codigo" id="pwd" placeholder="Si no recuerdas tu código puedes colocarlo despues">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Nombres:</label>
+                        <input type="text" class="form-control" required name="nombres" id="username" placeholder="Ingresa tus nombres">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Apellidos:</label>
+                        <input type="text" class="form-control" required name="apellidos" id="username" placeholder="Ingresa tus apellidos">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">DNI:</label>
+                        <input type="text" class="form-control" required name="dni" id="username" placeholder="Ingresa tu DNI">
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="ejemplo@gmail.com">
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="emails" class="form-control" required name="email" id="email" placeholder="ejemplo@gmail.com">
+                    </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-lg">Enviar</button>
-                </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success btn-lg" onclick="submitForm()">Enviar</button>
+                    </div>
             </form>
+
+            </div>
         </div>
-    </div>
-    <footer>
-        <% include partials/footer %>
-    </footer>
+        <footer>
+            <% include partials/footer %>
+        </footer>
+
+        <!--Limpiar campos luego de submitting-->
+        <script type="text/javascript">
+            function submitForm() {
+
+                document.forms["myForm"].submit(); //first submit
+                document.forms["myForm"].reset(); //and then reset the form values
+            }
+        </script>
 </body>
 
 </html>

@@ -317,6 +317,13 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         // },0,sender);
 
         // break;
+        case "Get_Started.Get_Started-yes":
+            router.get('/', function(req, res) {
+                //     //res.send('Hello world, I am a chat bot')
+                res.render('register-form.ejs', { sender });
+                //     res.sendFile(__dirname   +'/index.html');
+            });
+            break;
         case "req-tramites":
             if (!isDefined(contexts[0]) || contexts[0].name != 'req-tramites_dialog_params_requisitos') {
                 requisitos.leerTramitesPre(function(requisitos) {
