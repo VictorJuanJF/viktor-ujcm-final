@@ -1,6 +1,7 @@
 'use strict';
 const request = require('request');
 const config = require('./config');
+const moment = require('moment');
 const pg = require('pg');
 pg.defaults.ssl = true;
 
@@ -13,7 +14,7 @@ module.exports = {
                 access_token: config.FB_PAGE_TOKEN
             }
 
-        }, function (error, response, body) {
+        }, function(error, response, body) {
             if (!error && response.statusCode == 200) {
 
                 var user = JSON.parse(body);
@@ -26,47 +27,48 @@ module.exports = {
                             return console.error('Error acquiring client', err.stack);
                         }
                         var rows = [];
-                        let sql1=`SELECT id FROM users WHERE fb_id='${userId}' LIMIT 1` ;
+                        var date = moment().format();
+                        let sql1 = `SELECT id FROM users WHERE fb_id='${userId}' LIMIT 1`;
                         client
-                        .query(sql1,
-                            
-                            function(err, result) {
-                               // done();
-                                if (err) {
-                                    console.log('Query error: ' + err);
-                                    
-                                } else {
-                                    console.log('rows: ' + result.rows.length);
-                                    if (result.rows.length === 0) {
-                                        let sql = 'INSERT INTO users (fb_id, first_name, last_name, profile_pic, ' +
-                                            'locale, timezone, gender) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-                                        console.log('sql: ' + sql);
-                                        client.query(sql,
-                                            [
+                            .query(sql1,
+
+                                function(err, result) {
+                                    // done();
+                                    if (err) {
+                                        console.log('Query error: ' + err);
+
+                                    } else {
+                                        console.log('rows: ' + result.rows.length);
+                                        if (result.rows.length === 0) {
+                                            let sql = 'INSERT INTO users (fb_id, first_name, last_name, profile_pic, ' +
+                                                'locale, timezone, gender,fec_registro) VALUES ($1, $2, $3, $4, $5, $6, $7,$8)';
+                                            console.log('sql: ' + sql);
+                                            client.query(sql, [
                                                 userId,
                                                 user.first_name,
                                                 user.last_name,
                                                 user.profile_pic,
                                                 user.locale,
                                                 user.timezone,
-                                                user.gender
-                                                
+                                                user.gender,
+                                                date
+
                                             ]);
+                                        }
                                     }
-                                }
-                                
-                            });
-                       
+
+                                });
+
 
                         callback(user);
                         done();
-                        
-                    }); 
-                   // pool.end(function (err) {
-                  //      if (err) throw err;
-            
-                   //     process.exit();
-                  ///  });
+
+                    });
+                    // pool.end(function (err) {
+                    //      if (err) throw err;
+
+                    //     process.exit();
+                    ///  });
                 } else {
                     console.log("Cannot get data for fb user with id",
                         userId);
@@ -87,8 +89,7 @@ module.exports = {
             console.log('Se entro a readAllUsers de user.js');
             client
                 .query(
-                    'SELECT fb_id, first_name, last_name FROM users WHERE newsletter=$1',
-                    [newstype],
+                    'SELECT fb_id, first_name, last_name FROM users WHERE newsletter=$1', [newstype],
                     function(err, result) {
                         if (err) {
                             console.log(err);
@@ -100,7 +101,7 @@ module.exports = {
                         };
                         done();
                     });
-            
+
         });
         //pool.end();
     },
@@ -114,8 +115,7 @@ module.exports = {
             console.log('Se entro a newsletterSettings de user.js');
             client
                 .query(
-                    'UPDATE users SET newsletter=$1 WHERE fb_id=$2',
-                    [setting, userId],
+                    'UPDATE users SET newsletter=$1 WHERE fb_id=$2', [setting, userId],
                     function(err, result) {
                         if (err) {
                             console.log(err);
@@ -125,7 +125,7 @@ module.exports = {
                         };
                         done();
                     });
-            
+
         });
         //pool.end();
     }

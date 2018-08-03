@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Viktor-UJCM</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="register-form-resources/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container" id="registration-form">
+        <div class="image"></div>
+        <div class="frm">
+            <h1>Registro Viktor UJCM</h1>
+            <form>
+                <div class="form-group">
+                    <label for="pwd">Selecciona tu Escuela Profesional / Posgrado:</label>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Escuela Profesional / Posgrado
+                                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <li role="presentation" class="dropdown-header">Pregrado</li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Derecho</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Contabilidad</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ingeniería Comercial</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ciencias Administrativas y Marketing Estratégico</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Educación Inicial</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Educación Física</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Psicología</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ingeniería de Sistemas e Informática</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Programa de Complementación Académica</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation" class="dropdown-header">Posgrado</li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Maestría</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Doctorado</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Segunda Especialidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                    </div>
+                    <div class="form-check form-check-inline">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Código de Estudiante:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Si no recuerdas tu código puedes colocarlo despues">
+                </div>
+                <div class="form-group">
+                    <label for="username">Nombres:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Ingresa tus nombres">
+                </div>
+                <div class="form-group">
+                    <label for="username">Apellidos:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Ingresa tus apellidos">
+                </div>
+                <div class="form-group">
+                    <label for="username">DNI:</label>
+                    <input type="text" class="form-control" id="username" placeholder="Ingresa tu DNI">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="ejemplo@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+</body>
+
+</html>
