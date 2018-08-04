@@ -20,7 +20,7 @@
         <div class="image"></div>
         <div class="frm">
             <div>
-                <h1 class="card-panel lime lighten-3">Registro Viktor UJCM</h1>
+                <h5 class="card-panel lime lighten-3">Registro Viktor UJCM</h5>
             </div>
 
             <form action="/webviews/save" method="GET" name="myForm">
@@ -30,7 +30,7 @@
                     <div class="form-group">
 
                         <div class="col-s12">
-                            <h5>Selecciona tu Escuela Profesional / Posgrado:</h5>
+                            <h6>Selecciona tu Escuela Profesional / Posgrado:</h6>
                         </div>
                         <select class="form-control form-control-lg" name="Escuela" id="Escuela">
                             <option name="carrera" disabled selected>Escuela Profesional / Posgrado</option>
@@ -53,53 +53,50 @@
                     <input type="hidden" name="psid" id="psid">
                     <div class="form-group">
                         <div class="col-s12">
-                            <h5>Código de Estudiante:</h5>
+                            <h6>Código de Estudiante:</h6>
                         </div>
                         <input type="text" class="form-control" name="codigo" id="pwd" placeholder="Si no recuerdas tu código puedes colocarlo despues">
                     </div>
 
                     <div class="form-group">
                         <div class="col-s12">
-                            <h5>Nombres:</h5>
+                            <h6>Nombres:</h6>
                         </div>
                         <input type="text" class="form-control" required name="nombres" id="username" placeholder="Ingresa tus nombres">
                     </div>
                     <div class="form-group">
                         <div class="col-s12">
-                            <h5>Apellidos</h5>
+                            <h6>Apellidos</h6>
                         </div>
                         <input type="text" class="form-control" required name="apellidos" id="username" placeholder="Ingresa tus apellidos">
                     </div>
                     <div class="form-group">
                         <div class="col-s12">
-                            <h5>DNI:</h5>
+                            <h6>DNI:</h6>
                         </div>
                         <input type="text" class="form-control" required name="dni" id="username" placeholder="Ingresa tu DNI">
                     </div>
 
                     <div class="form-group">
                         <div class="col-s12">
-                            <h5>Email:</h5>
+                            <h6>Email:</h6>
                         </div>
-                        <input type="emails" class="form-control" required name="email" id="email" placeholder="ejemplo@gmail.com">
+                        <input type="text" class="form-control" required name="email" id="email" placeholder="ejemplo@gmail.com">
                     </div>
                     <div class="form-group">
 
                         <div class="col-s12">
-                            <h5>¿Quieres que te informe de los eventos en la UJCM Filial Tacna?:</h5>
+                            <h6>¿Quieres que te informe de los eventos en la UJCM Filial Tacna?:</h6>
                         </div>
                         <p>
                             <label>
                                   <input name="broadcast" value="1" type="radio" checked />
                                   <span>Sí</span>
-                                </label>
-                        </p>
-                        <p>
-                            <label>
                                   <input name="broadcast" value="0" type="radio" />
                                   <span>No</span>
                                 </label>
                         </p>
+
                     </div>
 
 
