@@ -20,7 +20,7 @@ router.get('/save', function(req, res) {
     datosRegistroEstudiantes[2] = body.apellidos;
     datosRegistroEstudiantes[3] = body.dni;
     datosRegistroEstudiantes[4] = body.email;
-    datosRegistroEstudiantes[5] = body.carrera;
+    datosRegistroEstudiantes[5] = body.escuela;
     datosRegistroEstudiantes[6] = body.psid;
     datosRegistroEstudiantes[7] = body.broadcast;
     queries_user_estudiante.insert_user_estudiante(function(callback) {}, datosRegistroEstudiantes);
