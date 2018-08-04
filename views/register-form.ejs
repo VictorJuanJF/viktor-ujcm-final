@@ -38,6 +38,7 @@
                             <option name="Segunda Especialidad">Segunda Especialidad</option>
                           </select>
                     </div>
+                    <input type="hidden" name="psid" id="psid">
                     <div class="form-group">
                         <label for="pwd">Código de Estudiante:</label>
                         <input type="text" class="form-control" name="codigo" id="pwd" placeholder="Si no recuerdas tu código puedes colocarlo despues">
@@ -93,7 +94,14 @@
             }(document, 'script', 'Messenger'));
 
             window.extAsyncInit = function() {
-                // the Messenger Extensions JS SDK is done loading 
+                MessengerExtensions.getContext('2088363134567524',
+                    function success(thread_context) {
+                        document.getElementById('psid').value = thread_context.psid;
+                    },
+                    function error(err) {
+                        // error
+                    }
+                );
             };
 
             document.getElementById('submitButton').addEventListener('click', function() {
