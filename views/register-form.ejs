@@ -61,6 +61,13 @@
                         <label for="email">Email:</label>
                         <input type="emails" class="form-control" required name="email" id="email" placeholder="ejemplo@gmail.com">
                     </div>
+                    <div class="form-group">
+                        <label for="email">¿Quieres que te informe de los eventos en la UJCM Filial Tacna?:</label><br>
+                        <div class="radio">
+                            <label><input type="radio" name="si-broadcast" checked value="1">Sí</label>
+                            <label><input type="radio" name="no-broadcast" value="0">No</label>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <button id="submitButton" type="submit" value="submit" class="btn btn-success btn-lg" onclick="submitForm()">Enviar</button>
