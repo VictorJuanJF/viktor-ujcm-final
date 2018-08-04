@@ -1,5 +1,5 @@
-let getTipoProgramaEstudiante = (nombreEscuela) => {
-    let tipoPrograma;
+const getTipoProgramaEstudiante = (nombreEscuela) => {
+    var tipoPrograma;
     //1 = Pregrado
     //2 = Posgrado
     switch (nombreEscuela) {

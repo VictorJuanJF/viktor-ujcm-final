@@ -105,7 +105,7 @@ module.exports = {
                 return console.error('Error acquiring client', err.stack);
             }
             var date = moment().format();
-            var getTipoPrograma = tipoPrograma.getTipoProgramaEstudiante(datosRegistroEstudiantes[0]);
+            var getTipoPrograma = tipoPrograma.getTipoProgramaEstudiante(datosRegistroEstudiantes[5]);
             client
                 .query(
                     'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,tipo_programa,nombre_escuela,fec_registro,fb_id,newsletter)' +
