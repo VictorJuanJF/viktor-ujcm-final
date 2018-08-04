@@ -25,7 +25,7 @@ const getTipoProgramaEstudiante = (nombreEscuela) => {
         case 'Psicologia':
             tipoPrograma = 1;
             break;
-        case 'Ingenieria de Sistemas e Informatica"':
+        case 'Ingenieria de Sistemas e Informatica':
             tipoPrograma = 1;
             break;
         case 'Programa de Complementacion Academica':
