@@ -5,67 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Viktor-UJCM</title>
-
-
-    <!-- BOOTSTRAP -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js">
-    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container" id="registration-form">
-        <h1>Probando WEbview</h1>
-        <form role="form">
-            <div class="form-group">
-                <label for="ejemplo_email_1">Email</label>
-                <input type="email" class="form-control" id="ejemplo_email_1" placeholder="Introduce tu email">
-            </div>
-            <div class="form-group">
-                <label for="ejemplo_password_1">Contraseña</label>
-                <input type="password" class="form-control" id="ejemplo_password_1" placeholder="Contraseña">
-            </div>
-            <div class="form-group">
-                <label for="ejemplo_archivo_1">Adjuntar un archivo</label>
-                <input type="file" id="ejemplo_archivo_1">
-                <p class="help-block">Ejemplo de texto de ayuda.</p>
-            </div>
-            <div class="checkbox">
-                <label>
-                        <input type="checkbox"> Activa esta casilla
-                      </label>
-            </div>
-            <button type="submit" class="btn btn-default">Enviar</button>
-        </form>
-    </div>
-    <footer>
-        <% include partials/footer %>
-    </footer>
+        <div class="image"></div>
+        <div class="frm">
+            <h1>Registro Viktor UJCM</h1>
+            <form action="/" method="POST" name="myForm">
+                <div class="form-group">
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Selecciona tu Escuela Profesional / Posgrado:</label>
+                        <select class="form-control form-control-lg">
+                            <option name="volvo" disabled selected>Escuela Profesional / Posgrado</option>
+                            <option name="volvo" disabled>Pregrado</option>
+                            <option name="Derecho">Derecho</option>
+                            <option name="Contabilidad">Contabilidad</option>
+                            <option name="Ingenieria Comercial">Ingeniería Comercial</option>
+                            <option name="Ciencias Administrativas y Marketing Estratégico">Ciencias Administrativas y Marketing Estratégico</option>
+                            <option name="Educación Inicial">Educación Inicial</option>
+                            <option name="Educación Fisica">Educación Física</option>
+                            <option name="Psicologia">Psicología</option>
+                            <option name="Ingenieria de Sistemas e Inforatica">Ingeniería de Sistemas e Informática</option>
+                            <option name="Programa de Complementacion Academica">Programa de Complementación Académica</option>
+                            <option name="volvo" disabled>Posgrado</option>
+                            <option name="Maestria">Maestría</option>
+                            <option name="Doctorado">Doctorado</option>
+                            <option name="Segunda Especialidad">Segunda Especialidad</option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Código de Estudiante:</label>
+                        <input type="text" class="form-control" name="codigo" id="pwd" placeholder="Si no recuerdas tu código puedes colocarlo despues">
+                    </div>
 
-    <!--Limpiar campos luego de submitting-->
-    <script type="text/javascript">
-        function submitForm() {
+                    <div class="form-group">
+                        <label for="username">Nombres:</label>
+                        <input type="text" class="form-control" required name="nombres" id="username" placeholder="Ingresa tus nombres">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Apellidos:</label>
+                        <input type="text" class="form-control" required name="apellidos" id="username" placeholder="Ingresa tus apellidos">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">DNI:</label>
+                        <input type="text" class="form-control" required name="dni" id="username" placeholder="Ingresa tu DNI">
+                    </div>
 
-            document.forms["myForm"].submit(); //first submit
-            document.forms["myForm"].reset(); //and then reset the form values
-        }
-        //webview
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="emails" class="form-control" required name="email" id="email" placeholder="ejemplo@gmail.com">
+                    </div>
 
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success btn-lg" onclick="submitForm()">Enviar</button>
+                    </div>
+            </form>
+
+            </div>
+        </div>
+        <footer>
+            <% include partials/footer %>
+        </footer>
+
+        <!--Limpiar campos luego de submitting-->
+        <script type="text/javascript">
+            function submitForm() {
+
+                document.forms["myForm"].submit(); //first submit
+                document.forms["myForm"].reset(); //and then reset the form values
             }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'Messenger'));
+            //webview
 
-        window.extAsyncInit = function() {
-            // the Messenger Extensions JS SDK is done loading 
-        };
-    </script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'Messenger'));
+
+            window.extAsyncInit = function() {
+                // the Messenger Extensions JS SDK is done loading 
+            };
+        </script>
 </body>
 
 </html>
