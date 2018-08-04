@@ -318,9 +318,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
         // break;
         case "Get_Started.Get_Started-yes":
-            router.get('/', function(req, res) {
+            app.get('/', function(req, res) {
                 //     //res.send('Hello world, I am a chat bot')
-                res.render('register-form.ejs', { sender });
+                res.render('register-form.ejs', { fb_id: sender });
                 //     res.sendFile(__dirname   +'/index.html');
             });
             break;

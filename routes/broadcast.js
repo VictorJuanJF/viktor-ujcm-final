@@ -8,11 +8,11 @@ const queries_user_estudiante = require('../queries_user_estudiante');
 
 
 
-router.get('/', function(req, res) {
-    //     //res.send('Hello world, I am a chat bot')
-    res.render('register-form.ejs', { user: req.user });
-    //     res.sendFile(__dirname   +'/index.html');
-});
+// router.get('/', function(req, res) {
+//     //     //res.send('Hello world, I am a chat bot')
+//     res.render('register-form.ejs', { user: req.user });
+//     //     res.sendFile(__dirname   +'/index.html');
+// });
 
 router.post('/', function(req, res) {
 
