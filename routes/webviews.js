@@ -13,7 +13,7 @@ router.get('/webview', function(req, res) {
 router.get('/save', function(req, res) {
     let body = req.query;
     let nombre = body.nombres;
-    fbservice.sendTextMessage(body.psid, `Felicidades ${nombre}! lo lograste`);
+    fbservice.sendTextMessage(body.psid, `Felicidades ${nombre}! lo lograste tu fb ID es ${body.psid}`);
 
 });
 
