@@ -108,17 +108,18 @@ module.exports = {
             var getTipoPrograma = tipoPrograma.getTipoProgramaEstudiante(datosRegistroEstudiantes[0]);
             client
                 .query(
-                    'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,tipo_programa,nombre_escuela,fec_registro,fb_i)' +
-                    'VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)', [
+                    'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,tipo_programa,nombre_escuela,fec_registro,fb_i,newsletter)' +
+                    'VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', [
+                        datosRegistroEstudiantes[0],
                         datosRegistroEstudiantes[1],
                         datosRegistroEstudiantes[2],
                         datosRegistroEstudiantes[3],
                         datosRegistroEstudiantes[4],
-                        datosRegistroEstudiantes[5],
                         getTipoPrograma,
-                        datosRegistroEstudiantes[0],
+                        datosRegistroEstudiantes[5],
                         date,
                         datosRegistroEstudiantes[6],
+                        datosRegistroEstudiantes[7]
                     ],
                     function(err, result) {
                         if (err) {
