@@ -318,11 +318,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
         // break;
         case "Get_Started.Get_Started-yes":
-            app.get('/', function(req, res) {
-                //     //res.send('Hello world, I am a chat bot')
-                res.render('register-form.ejs', { fb_id: sender });
-                //     res.sendFile(__dirname   +'/index.html');
-            });
+
             break;
         case "req-tramites":
             if (!isDefined(contexts[0]) || contexts[0].name != 'req-tramites_dialog_params_requisitos') {
@@ -478,6 +474,11 @@ function handleMessage(message, sender) {
         case 4:
             // custom payload
             console.log('se entro a handleMessage case 4');
+            app.get('/', function(req, res) {
+                //     //res.send('Hello world, I am a chat bot')
+                res.render('register-form.ejs', { fb_id: sender });
+                //     res.sendFile(__dirname   +'/index.html');
+            });
             var messageData = {
                 recipient: {
                     id: sender
