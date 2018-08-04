@@ -13,90 +13,57 @@
 
 <body>
     <div class="container" id="registration-form">
-        <div class="image"></div>
-        <div class="frm">
-            <h1>Registro Viktor UJCM</h1>
-            <form action="/" method="POST" name="myForm">
-                <div class="form-group">
-                    <div class="form-group">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Selecciona tu Escuela Profesional / Posgrado:</label>
-                        <select class="form-control form-control-lg">
-                            <option name="volvo" disabled selected>Escuela Profesional / Posgrado</option>
-                            <option name="volvo" disabled>Pregrado</option>
-                            <option name="Derecho">Derecho</option>
-                            <option name="Contabilidad">Contabilidad</option>
-                            <option name="Ingenieria Comercial">Ingeniería Comercial</option>
-                            <option name="Ciencias Administrativas y Marketing Estratégico">Ciencias Administrativas y Marketing Estratégico</option>
-                            <option name="Educación Inicial">Educación Inicial</option>
-                            <option name="Educación Fisica">Educación Física</option>
-                            <option name="Psicologia">Psicología</option>
-                            <option name="Ingenieria de Sistemas e Inforatica">Ingeniería de Sistemas e Informática</option>
-                            <option name="Programa de Complementacion Academica">Programa de Complementación Académica</option>
-                            <option name="volvo" disabled>Posgrado</option>
-                            <option name="Maestria">Maestría</option>
-                            <option name="Doctorado">Doctorado</option>
-                            <option name="Segunda Especialidad">Segunda Especialidad</option>
-                          </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Código de Estudiante:</label>
-                        <input type="text" class="form-control" name="codigo" id="pwd" placeholder="Si no recuerdas tu código puedes colocarlo despues">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Nombres:</label>
-                        <input type="text" class="form-control" required name="nombres" id="username" placeholder="Ingresa tus nombres">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Apellidos:</label>
-                        <input type="text" class="form-control" required name="apellidos" id="username" placeholder="Ingresa tus apellidos">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">DNI:</label>
-                        <input type="text" class="form-control" required name="dni" id="username" placeholder="Ingresa tu DNI">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="emails" class="form-control" required name="email" id="email" placeholder="ejemplo@gmail.com">
-                    </div>
-
-                    <div class="form-group">
-                        <button type="button" class="btn btn-success btn-lg" onclick="submitForm()">Enviar</button>
-                    </div>
-            </form>
-
+        <h1>Probando WEbview</h1>
+        <form role="form">
+            <div class="form-group">
+                <label for="ejemplo_email_1">Email</label>
+                <input type="email" class="form-control" id="ejemplo_email_1" placeholder="Introduce tu email">
             </div>
-        </div>
-        <footer>
-            <% include partials/footer %>
-        </footer>
+            <div class="form-group">
+                <label for="ejemplo_password_1">Contraseña</label>
+                <input type="password" class="form-control" id="ejemplo_password_1" placeholder="Contraseña">
+            </div>
+            <div class="form-group">
+                <label for="ejemplo_archivo_1">Adjuntar un archivo</label>
+                <input type="file" id="ejemplo_archivo_1">
+                <p class="help-block">Ejemplo de texto de ayuda.</p>
+            </div>
+            <div class="checkbox">
+                <label>
+                        <input type="checkbox"> Activa esta casilla
+                      </label>
+            </div>
+            <button type="submit" class="btn btn-default">Enviar</button>
+        </form>
+    </div>
+    <footer>
+        <% include partials/footer %>
+    </footer>
 
-        <!--Limpiar campos luego de submitting-->
-        <script type="text/javascript">
-            function submitForm() {
+    <!--Limpiar campos luego de submitting-->
+    <script type="text/javascript">
+        function submitForm() {
 
-                document.forms["myForm"].submit(); //first submit
-                document.forms["myForm"].reset(); //and then reset the form values
+            document.forms["myForm"].submit(); //first submit
+            document.forms["myForm"].reset(); //and then reset the form values
+        }
+        //webview
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
             }
-            //webview
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'Messenger'));
 
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'Messenger'));
-
-            window.extAsyncInit = function() {
-                // the Messenger Extensions JS SDK is done loading 
-            };
-        </script>
+        window.extAsyncInit = function() {
+            // the Messenger Extensions JS SDK is done loading 
+        };
+    </script>
 </body>
 
 </html>
