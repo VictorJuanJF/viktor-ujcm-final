@@ -14,7 +14,7 @@
         <div class="image"></div>
         <div class="frm">
             <h1>Registro Viktor UJCM</h1>
-            <form action="/" method="POST" name="myForm">
+            <form action="/webviews/save" method="POST" name="myForm">
                 <div class="form-group">
                     <div class="form-group">
                     </div>
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="button" class="btn btn-success btn-lg" onclick="submitForm()">Enviar</button>
+                        <button id="submitButton" type="submit" value="submit" class="btn btn-success btn-lg" onclick="submitForm()">Enviar</button>
                     </div>
             </form>
 
@@ -95,6 +95,14 @@
             window.extAsyncInit = function() {
                 // the Messenger Extensions JS SDK is done loading 
             };
+
+            document.getElementById('submitButton').addEventListener('click', function() {
+                MessengerExtensions.requestCloseBrowser(function success() {
+                    // webview closed
+                }, function error(err) {
+                    // an error occurred
+                });
+            })
         </script>
 </body>
 
