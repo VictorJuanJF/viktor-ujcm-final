@@ -14,7 +14,7 @@ router.get('/webview', function(req, res) {
 router.get('/save', function(req, res) {
     let body = req.query;
     let nombre = body.nombres;
-    let datosRegistroEstudiantes = [];
+    var datosRegistroEstudiantes = [];
     datosRegistroEstudiantes[0] = body.codigo;
     datosRegistroEstudiantes[1] = body.nombres;
     datosRegistroEstudiantes[2] = body.apellidos;
