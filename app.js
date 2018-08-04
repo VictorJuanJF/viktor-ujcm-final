@@ -16,6 +16,7 @@ const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const session = require('express-session');
 const broadcast = require('./routes/broadcast');
+const webviews = require('./routes/webviews');
 
 
 pg.defaults.ssl = true;
@@ -121,6 +122,7 @@ passport.use(new FacebookStrategy({
 ));
 
 app.use('/', broadcast);
+app.use('/webviews', webviews);
 // Index route
 // app.get('/', function(req, res) {
 //     res.send('Hola! este espacio será la futura Pagina Web de Mariateguino UJCM')
@@ -474,11 +476,7 @@ function handleMessage(message, sender) {
         case 4:
             // custom payload
             console.log('se entro a handleMessage case 4');
-            app.get('/', function(req, res) {
-                //     //res.send('Hello world, I am a chat bot')
-                res.render('register-form.ejs', { fb_id: sender });
-                //     res.sendFile(__dirname   +'/index.html');
-            });
+
             var messageData = {
                 recipient: {
                     id: sender

@@ -8,9 +8,9 @@ const queries_user_estudiante = require('../queries_user_estudiante');
 
 
 
-// router.get('/', function(req, res) {
+// router.get('/registro-estudiante', function(req, res) {
 //     //     //res.send('Hello world, I am a chat bot')
-//     res.render('register-form.ejs', { user: req.user });
+//     res.render('register-form.ejs');
 //     //     res.sendFile(__dirname   +'/index.html');
 // });
 
