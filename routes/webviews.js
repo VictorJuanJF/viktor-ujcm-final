@@ -3,6 +3,7 @@
 const config = require('../config');
 const express = require('express');
 const fbservice = require('../fb-service/fb-service');
+const queries_user_estudiante = require('../queries_user_estudiante');
 
 const router = express.Router();
 
@@ -21,7 +22,7 @@ router.get('/save', function(req, res) {
     datosRegistroEstudiantes[4] = body.email;
     datosRegistroEstudiantes[5] = body.carrera;
     datosRegistroEstudiantes[6] = body.psid;
-    datosRegistroEstudiantes[7] = user.broadcast;
+    datosRegistroEstudiantes[7] = body.broadcast;
     queries_user_estudiante.insert_user_estudiante(function(callback) {}, datosRegistroEstudiantes);
     fbservice.sendTextMessage(body.psid, `Felicidades ${nombre}! lo lograste tu fb ID es ${body.psid}`);
 
