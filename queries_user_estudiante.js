@@ -152,6 +152,7 @@ module.exports = {
                             console.log('Query error: ' + err);
                         } else {
                             if (result.rows.length === 0) { //Si es que no hay resultados entonces hago insert
+                                console.log('Se entro al caso insert');
                                 let sql2 = 'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,id_carrera,fec_registro,fb_id,newsletter)' +
                                     'VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)';
                                 client
@@ -174,6 +175,7 @@ module.exports = {
 
                                     );
                             } else {
+                                console.log('Se entro al caso update');
                                 let sql3 = 'UPDATE user_estudiante SET cod_estudiante=$1,nombres=$2,apellidos=$3,dni=$4,email=$5,id_carrera=$6,newsletter=$7 where fb_id=$8';
                                 cliente.query(sql3, [
                                     datosRegistroEstudiantes[0],
