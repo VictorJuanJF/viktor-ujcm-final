@@ -3,7 +3,6 @@ const request = require('request');
 const config = require('./config');
 const pg = require('pg');
 const moment = require('moment'); // Get date
-const tipoPrograma = require('./other_functions/other_functions');
 pg.defaults.ssl = true;
 
 module.exports = {
