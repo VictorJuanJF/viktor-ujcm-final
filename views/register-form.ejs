@@ -133,11 +133,20 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'Messenger'));
 
+            //Cuando ya cargo el webview
             window.extAsyncInit = function() {
                 MessengerExtensions.getContext('2088363134567524',
                     function success(thread_context) {
                         $('#psid').val(thread_context.psid);
                         $.getJSON('/webviews/settings?psid=' + thread_context.psid, function(data) {
+                            $('#carrera_' + data.id_carrera).prop('selected', true);
+                            $('#codigo').text(data.cod_estudiante);
+                            $('#nombres').text(data.cod_estudiante);
+                            $('#apellidos').text(data.cod_estudiante);
+                            $('#dni').text(data.cod_estudiante);
+                            $('#email').text(data.cod_estudiante);
+                            $('#broadcast_').prop('checked', true);
+
 
                         });
                     },
@@ -145,15 +154,14 @@
                         // error
                     }
                 );
-            };
-
-            $('#submitButton').click(function() {
-                MessengerExtensions.requestCloseBrowser(function success() {
-                    // webview closed
-                }, function error(err) {
-                    // an error occurred
+                $('#submitButton').click(function() {
+                    MessengerExtensions.requestCloseBrowser(function success() {
+                        // webview closed
+                    }, function error(err) {
+                        // an error occurred
+                    });
                 });
-            })
+            };
         </script>
 </body>
 

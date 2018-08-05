@@ -69,7 +69,7 @@ module.exports = {
 
     list_user_estudiante: function(callback, psid) {
         var pool = new pg.Pool(config.PG_CONFIG);
-        console.log('Se entro a listadoTramites');
+        console.log('Se entro a list_user_estudiante');
         pool.connect(function(err, client, done) {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
