@@ -95,7 +95,7 @@ module.exports = {
 
     },
 
-    //Update
+    //Insert user_estudiante
     insert_user_estudiante: function(callback, datosRegistroEstudiantes) {
         var pool = new pg.Pool(config.PG_CONFIG);
         console.log('Datos enviados a inser_user_estudiante: ', datosRegistroEstudiantes);
@@ -104,6 +104,8 @@ module.exports = {
                 return console.error('Error acquiring client', err.stack);
             }
             var date = moment().format();
+            //datosRegistroEstudiantes[6] aca esta llegando el fbID del usuario, si existe entonces hago update, sino insert
+            // let sql1 = `SELECT fb_id FROM user_estudiante WHERE fb_id='${datosRegistroEstudiantes[6]}' LIMIT 1`;
             client
                 .query(
                     'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,id_carrera,fec_registro,fb_id,newsletter)' +
@@ -120,13 +122,84 @@ module.exports = {
                     ],
                     function(err, result) {
                         if (err) {
-                            console.log(err);
-                            callback([]);
+                            console.log('Query error: ' + err);
                         } else {
                             callback([]);
                         };
                         done();
                     });
+
+
+
+        });
+        //pool.end();
+    },
+    insert_update_user_estudiante: function(callback, datosRegistroEstudiantes) {
+        var pool = new pg.Pool(config.PG_CONFIG);
+        console.log('Datos enviados a insert_update_user_estudiante: ', datosRegistroEstudiantes);
+        pool.connect(function(err, client, done) {
+            if (err) {
+                return console.error('Error acquiring client', err.stack);
+            }
+            var date = moment().format();
+            //datosRegistroEstudiantes[6] aca esta llegando el fbID del usuario, si existe entonces hago update, sino insert
+            let sql1 = `SELECT fb_id FROM user_estudiante WHERE fb_id='${datosRegistroEstudiantes[6]}' LIMIT 1`;
+            client
+                .query(
+                    sql1,
+                    function(err, result) {
+                        if (err) {
+                            console.log('Query error: ' + err);
+                        } else {
+                            if (result.rows.length === 0) { //Si es que no hay resultados entonces hago insert
+                                let sql2 = 'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,id_carrera,fec_registro,fb_id,newsletter)' +
+                                    'VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)';
+                                client
+                                    .query(
+                                        sql2, [
+                                            datosRegistroEstudiantes[0],
+                                            datosRegistroEstudiantes[1],
+                                            datosRegistroEstudiantes[2],
+                                            datosRegistroEstudiantes[3],
+                                            datosRegistroEstudiantes[4],
+                                            datosRegistroEstudiantes[5],
+                                            date,
+                                            datosRegistroEstudiantes[6],
+                                            datosRegistroEstudiantes[7]
+                                        ], (err, result) => {
+                                            if (err) {
+                                                console.log('Query error: ', err);
+                                            }
+                                        }
+
+                                    );
+                            } else {
+                                let sql3 = 'UPDATE user_estudiante SET cod_estudiante=$1,nombres=$2,apellidos=$3,dni=$4,email=$5,id_carrera=$6,newsletter=$7 where fb_id=$8';
+                                cliente.query(sql3, [
+                                    datosRegistroEstudiantes[0],
+                                    datosRegistroEstudiantes[1],
+                                    datosRegistroEstudiantes[2],
+                                    datosRegistroEstudiantes[3],
+                                    datosRegistroEstudiantes[4],
+                                    datosRegistroEstudiantes[5],
+                                    datosRegistroEstudiantes[7],
+                                    datosRegistroEstudiantes[6]
+                                ], (err, result) => {
+                                    if (err) {
+                                        console.log('Query error: ', err);
+                                    }
+                                });
+                            }
+
+
+                        };
+                        callback([]);
+                        done();
+                    }
+
+                );
+
+
 
         });
         //pool.end();
