@@ -77,7 +77,7 @@ module.exports = {
 
             client
                 .query(
-                    'SELECT nombre_escuela,cod_estudiante,nombres,apellidos,dni,email,newsletter FROM user_estudiante WHERE fb_id=$1', [psid],
+                    'SELECT id_carrera,cod_estudiante,nombres,apellidos,dni,email,newsletter FROM user_estudiante WHERE fb_id=$1', [psid],
                     function(err, result) {
                         //
                         if (err) {
