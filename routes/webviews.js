@@ -36,6 +36,7 @@ router.get('/settings', function(req, res) {
             settings = result;
         }
     }, req.query.psid);
+    console.log('CHECA ESTO X2: ', settings);
     res.json(settings);
 
 });
