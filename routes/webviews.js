@@ -28,4 +28,15 @@ router.get('/save', function(req, res) {
 
 });
 
+router.get('/settings', function(req, res) {
+    let settings = [];
+    queries_user_estudiante.list_user_estudiante(function(result) {
+        if (result.rows.length > 0) {
+            settings = result.rows[0];
+        }
+    }, req.query.psid);
+    res.json(settings);
+
+});
+
 module.exports = router;

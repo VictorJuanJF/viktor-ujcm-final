@@ -68,7 +68,7 @@ module.exports = {
 
     },
 
-    list_user_estudiante: function(callback) {
+    list_user_estudiante: function(callback, psid) {
         var pool = new pg.Pool(config.PG_CONFIG);
         console.log('Se entro a listadoTramites');
         pool.connect(function(err, client, done) {
@@ -78,7 +78,7 @@ module.exports = {
 
             client
                 .query(
-                    'SELECT * FROM procedimiento_ad_pre ORDER BY NOMBRE ASC',
+                    'SELECT nombre_escuela,cod_estudiante,nombres,apellidos,dni,email,newsletter FROM user_estudiante WHERE fb_id=$1', [psid],
                     function(err, result) {
                         //
                         if (err) {
@@ -105,17 +105,15 @@ module.exports = {
                 return console.error('Error acquiring client', err.stack);
             }
             var date = moment().format();
-            var getTipoPrograma = tipoPrograma.getTipoProgramaEstudiante(datosRegistroEstudiantes[5]);
             client
                 .query(
-                    'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,tipo_programa,nombre_escuela,fec_registro,fb_id,newsletter)' +
+                    'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,id_carrera,fec_registro,fb_id,newsletter)' +
                     'VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', [
                         datosRegistroEstudiantes[0],
                         datosRegistroEstudiantes[1],
                         datosRegistroEstudiantes[2],
                         datosRegistroEstudiantes[3],
                         datosRegistroEstudiantes[4],
-                        getTipoPrograma,
                         datosRegistroEstudiantes[5],
                         date,
                         datosRegistroEstudiantes[6],
