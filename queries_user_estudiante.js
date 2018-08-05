@@ -98,7 +98,7 @@ module.exports = {
     //Update
     insert_user_estudiante: function(callback, datosRegistroEstudiantes) {
         var pool = new pg.Pool(config.PG_CONFIG);
-        console.log('Datos enviados a insertarTramite: ', datosRegistroEstudiantes);
+        console.log('Datos enviados a inser_user_estudiante: ', datosRegistroEstudiantes);
         pool.connect(function(err, client, done) {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
@@ -107,7 +107,7 @@ module.exports = {
             client
                 .query(
                     'INSERT INTO user_estudiante (cod_estudiante,nombres,apellidos,dni,email,id_carrera,fec_registro,fb_id,newsletter)' +
-                    'VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)', [
+                    'VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)', [
                         datosRegistroEstudiantes[0],
                         datosRegistroEstudiantes[1],
                         datosRegistroEstudiantes[2],
