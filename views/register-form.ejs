@@ -128,12 +128,12 @@
                         $.getJSON('/webviews/settings?psid=' + thread_context.psid, function(data) {
                             console.log('Ha llego esto :V :', data);
                             $('#carrera_' + data.id_carrera).prop('selected', true);
-                            $('#codigo').text(data.cod_estudiante);
-                            $('#nombres').text(data.cod_estudiante);
-                            $('#apellidos').text(data.cod_estudiante);
-                            $('#dni').text(data.cod_estudiante);
-                            $('#email').text(data.cod_estudiante);
-                            $('#broadcast_').prop('checked', true);
+                            $('#codigo').val(data.cod_estudiante);
+                            $('#nombres').val(data.cod_estudiante);
+                            $('#apellidos').val(data.cod_estudiante);
+                            $('#dni').val(data.cod_estudiante);
+                            $('#email').val(data.cod_estudiante);
+                            $('#broadcast_' + data.newsletter).prop('checked', true);
 
 
                         });
