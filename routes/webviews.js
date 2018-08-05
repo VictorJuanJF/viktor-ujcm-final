@@ -24,8 +24,8 @@ router.get('/save', function(req, res) {
     datosRegistroEstudiantes[6] = body.psid;
     datosRegistroEstudiantes[7] = body.broadcast;
     queries_user_estudiante.insert_user_estudiante(function(callback) {}, datosRegistroEstudiantes);
-    fbservice.sendTextMessage(body.psid, `Felicidades ${nombre}! lo lograste tu fb ID es ${body.psid}`);
-
+    fbservice.sendTextMessage(body.psid, `Felicidades ${nombre}! ya estás registrado 🤗tu ID es ${body.psid}`);
+    fbservice.sendToApiAi(senderID, "Ver Opciones");
 });
 
 router.get('/settings', function(req, res) {
