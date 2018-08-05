@@ -31,11 +31,9 @@ router.get('/save', function(req, res) {
 router.get('/settings', function(req, res) {
 
     queries_user_estudiante.list_user_estudiante(function(result) {
-        console.log('CHECA ESTO: ', result.length);
         let settings = [];
-        if (result.length > 0) {
-            settings = result;
-        }
+        settings = result[0];
+        console.log('CHECA ESTO X1: ', result[0]);
         console.log('CHECA ESTO X2: ', settings);
         res.json(settings);
     }, req.query.psid);
