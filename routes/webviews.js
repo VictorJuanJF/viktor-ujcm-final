@@ -33,8 +33,6 @@ router.get('/settings', function(req, res) {
     queries_user_estudiante.list_user_estudiante(function(result) {
         let settings = [];
         settings = result[0];
-        console.log('CHECA ESTO X1: ', result[0]);
-        console.log('CHECA ESTO X2: ', settings);
         res.json(settings);
     }, req.query.psid);
 
