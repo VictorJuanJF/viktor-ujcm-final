@@ -139,6 +139,7 @@
                     function success(thread_context) {
                         $('#psid').val(thread_context.psid);
                         $.getJSON('/webviews/settings?psid=' + thread_context.psid, function(data) {
+                            console.log('Ha llego esto :V :', data);
                             $('#carrera_' + data.id_carrera).prop('selected', true);
                             $('#codigo').text(data.cod_estudiante);
                             $('#nombres').text(data.cod_estudiante);
