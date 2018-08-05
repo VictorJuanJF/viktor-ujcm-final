@@ -25,6 +25,7 @@ router.get('/save', function(req, res) {
     datosRegistroEstudiantes[7] = body.broadcast;
     queries_user_estudiante.insert_update_user_estudiante(function(callback) {}, datosRegistroEstudiantes);
     fbservice.sendTextMessage(body.psid, `Felicidades ${nombre}! ya estás registrado 🤗tu ID es ${body.psid}`);
+    console.log(res.sendStatus(200));
 
 });
 
