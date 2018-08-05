@@ -177,7 +177,7 @@ module.exports = {
                             } else {
                                 console.log('Se entro al caso update');
                                 let sql3 = 'UPDATE user_estudiante SET cod_estudiante=$1,nombres=$2,apellidos=$3,dni=$4,email=$5,id_carrera=$6,newsletter=$7 where fb_id=$8';
-                                cliente.query(sql3, [
+                                client.query(sql3, [
                                     datosRegistroEstudiantes[0],
                                     datosRegistroEstudiantes[1],
                                     datosRegistroEstudiantes[2],
