@@ -7,8 +7,13 @@ const queries_user_estudiante = require('../queries_user_estudiante');
 
 const router = express.Router();
 
+//Se carga el webview con el formulario estudiante
 router.get('/webview', function(req, res) {
     res.render('register-form');
+});
+//Se carga el webview con el formulario para foraneos a la U 
+router.get('/webview-2', function(req, res) {
+    res.render('register-form-foraneo');
 });
 
 router.get('/save', function(req, res) {

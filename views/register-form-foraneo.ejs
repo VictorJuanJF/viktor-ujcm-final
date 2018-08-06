@@ -6,13 +6,10 @@
     <meta charset="utf-8">
     <title>Viktor-UJCM</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -30,51 +27,73 @@
                     <div class="form-group">
 
                         <div class="col-s12">
-                            <h6>Selecciona tu Escuela Profesional / Posgrado:</h6>
+                            <h6>¿A qué carrera o programa de posgrado te interesaría postular?</h6>
                         </div>
                         <select class="form-control form-control-lg" name="Escuela" id="Escuela">
-                            <option name="carrera" disabled selected>Escuela Profesional / Posgrado</option>
-                            <option name="carrera" disabled>Pregrado</option>
-                            <option name="carrera" value="Derecho">Derecho</option>
-                            <option name="carrera" value="Contabilidad">Contabilidad</option>
-                            <option name="carrera" value="Ingenieria Comercial">Ingeniería Comercial</option>
-                            <option name="carrera" value="Ciencias Administrativas y Marketing Estratégico">Ciencias Administrativas y Marketing Estratégico</option>
-                            <option name="carrera" value="Educacion Inicial">Educación Inicial</option>
-                            <option name="carrera" value="Educacion Fisica">Educación Física</option>
-                            <option name="carrera" value="Psicologia">Psicología</option>
-                            <option name="carrera" value="Ingenieria de Sistemas e Informatica">Ingeniería de Sistemas e Informática</option>
-                            <option name="carrera" value="Programa de Complementacion Academica">Programa de Complementación Académica</option>
-                            <option name="carrera" disabled>Posgrado</option>
-                            <option name="carrera" value="Maestria">Maestría</option>
-                            <option name="carrera" value="Doctorado">Doctorado</option>
-                            <option name="carrera" value="Segunda Especialidad">Segunda Especialidad</option>
+                            <option class ="carrera" name="carrera" disabled selected>Escuela Profesional / Posgrado</option>
+                            <option class ="carrera" name="carrera" disabled>Pregrado</option>
+                            <option class ="carrera" name="carrera" id="carrera_1" value="1">Derecho</option>
+                            <option class ="carrera" name="carrera" id="carrera_2" value="2">Contabilidad</option>
+                            <option class ="carrera" name="carrera" id="carrera_3" value="3">Ingeniería Comercial</option>
+                            <option class ="carrera" name="carrera" id="carrera_4" value="4">Ciencias Administrativas y Marketing Estratégico</option>
+                            <option class ="carrera" name="carrera" id="carrera_5" value="5">Educación Inicial</option>
+                            <option class ="carrera" name="carrera" id="carrera_6" value="6">Educación Física</option>
+                            <option class ="carrera" name="carrera" id="carrera_6" value="13">Economía</option>
+                            <option class ="carrera" name="carrera" id="carrera_7" value="7">Psicología</option>
+                            <option class ="carrera" name="carrera" id="carrera_8" value="8">Ingeniería de Sistemas e Informática</option>
+                            <option class ="carrera" name="carrera" id="carrera_9" value="9">Programa de Complementación Académica</option>
+                            <option class ="carrera" name="carrera" disabled>Posgrado</option>
+                            <option class ="carrera" name="carrera" id="carrera_10" value="10">Maestría</option>
+                            <option class ="carrera" name="carrera" id="carrera_11" value="11">Doctorado</option>
+                            <option class ="carrera" name="carrera" id="carrera_12" value="12">Segunda Especialidad</option>
+                            <option class ="carrera" name="carrera" id="carrera_2" value="2">Contabilidad</option>
+                            <option class ="carrera" name="carrera" id="carrera_3" value="3">Ingeniería Comercial</option>
+                            <option class ="carrera" name="carrera" id="carrera_4" value="4">Ciencias Administrativas y Marketing Estratégico</option>
+                            <option class ="carrera" name="carrera" id="carrera_5" value="5">Educación Inicial</option>
+                            <option class ="carrera" name="carrera" id="carrera_6" value="6">Educación Física</option>
+                            <option class ="carrera" name="carrera" id="carrera_6" value="13">Economía</option>
+                            <option class ="carrera" name="carrera" id="carrera_7" value="7">Psicología</option>
+                            <option class ="carrera" name="carrera" id="carrera_8" value="8">Ingeniería de Sistemas e Informática</option>
+                            <option class ="carrera" name="carrera" id="carrera_9" value="9">Programa de Complementación Académica</option>
+                            <option class ="carrera" name="carrera" disabled>Posgrado</option>
+                            <option class ="carrera" name="carrera" id="carrera_10" value="10">Maestría</option>
+                            <option class ="carrera" name="carrera" id="carrera_11" value="11">Doctorado</option>
+                            <option class ="carrera" name="carrera" id="carrera_12" value="12">Segunda Especialidad</option>
+                            <option class ="carrera" name="carrera" id="carrera_2" value="2">Contabilidad</option>
+                            <option class ="carrera" name="carrera" id="carrera_3" value="3">Ingeniería Comercial</option>
+                            <option class ="carrera" name="carrera" id="carrera_4" value="4">Ciencias Administrativas y Marketing Estratégico</option>
+                            <option class ="carrera" name="carrera" id="carrera_5" value="5">Educación Inicial</option>
+                            <option class ="carrera" name="carrera" id="carrera_6" value="6">Educación Física</option>
+                            <option class ="carrera" name="carrera" id="carrera_6" value="13">Economía</option>
+                            <option class ="carrera" name="carrera" id="carrera_7" value="7">Psicología</option>
+                            <option class ="carrera" name="carrera" id="carrera_8" value="8">Ingeniería de Sistemas e Informática</option>
+                            <option class ="carrera" name="carrera" id="carrera_9" value="9">Programa de Complementación Académica</option>
+                            <option class ="carrera" name="carrera" disabled>Posgrado</option>
+                            <option class ="carrera" name="carrera" id="carrera_10" value="10">Maestría</option>
+                            <option class ="carrera" name="carrera" id="carrera_11" value="11">Doctorado</option>
+                            <option class ="carrera" name="carrera" id="carrera_12" value="12">Segunda Especialidad</option>
                           </select>
                     </div>
+
                     <input type="hidden" name="psid" id="psid">
-                    <div class="form-group">
-                        <div class="col-s12">
-                            <h6>Código de Estudiante:</h6>
-                        </div>
-                        <input type="text" class="form-control" name="codigo" id="pwd" placeholder="Si no recuerdas tu código puedes colocarlo despues">
-                    </div>
 
                     <div class="form-group">
                         <div class="col-s12">
                             <h6>Nombres:</h6>
                         </div>
-                        <input type="text" class="form-control" required name="nombres" id="username" placeholder="Ingresa tus nombres">
+                        <input type="text" class="form-control" required name="nombres" id="nombres" id="username" placeholder="Ingresa tus nombres">
                     </div>
                     <div class="form-group">
                         <div class="col-s12">
                             <h6>Apellidos</h6>
                         </div>
-                        <input type="text" class="form-control" required name="apellidos" id="username" placeholder="Ingresa tus apellidos">
+                        <input type="text" class="form-control" required name="apellidos" id="apellidos" id="username" placeholder="Ingresa tus apellidos">
                     </div>
                     <div class="form-group">
                         <div class="col-s12">
                             <h6>DNI:</h6>
                         </div>
-                        <input type="text" class="form-control" required name="dni" id="username" placeholder="Ingresa tu DNI">
+                        <input type="text" class="form-control" required name="dni" id="dni" id="dni" placeholder="Ingresa tu DNI">
                     </div>
 
                     <div class="form-group">
@@ -83,26 +102,13 @@
                         </div>
                         <input type="text" class="form-control" required name="email" id="email" placeholder="ejemplo@gmail.com">
                     </div>
+
                     <div class="form-group">
-
-                        <div class="col-s12">
-                            <h6>¿Quieres que te informe de los eventos en la UJCM Filial Tacna?:</h6>
+                        <div class="col s12">
+                            <h6>¿Quieres que te informe sobre detalles de los próximos procesos de admisión en la UJCM Filial Tacna?:</h6>
                         </div>
-                        <p>
-                            <label>
-                                  <input class="with-gap" name="broadcast" value="1" type="radio" checked />
-                                  <span>Sí</span>
-                                  
-                                </label>
-                        </p>
-                        <p>
-                            <label>
-                                    
-                                      <input name="broadcast" value="0" type="radio" />
-                                      <span>No</span>
-                                    </label>
-                        </p>
-
+                        <div class="col s6"><label><input type="radio" class="broadcast"  id="broadcast_1" name="broadcast" value="1" checked><span>Sí</span></label></div>
+                        <div class="col s6"><label><input type="radio" class="broadcast" id="broadcast_0" name="broadcast" value="0"><span>No</span></label></div>
                     </div>
 
 
@@ -111,6 +117,7 @@
                         <button id="submitButton" type="submit" value="submit" class="btn btn-success btn-lg"> <i class="">Enviar</i></button>
 
                     </div>
+
             </form>
 
             </div>
@@ -134,24 +141,36 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'Messenger'));
 
+            //Cuando ya cargo el webview
             window.extAsyncInit = function() {
                 MessengerExtensions.getContext('2088363134567524',
                     function success(thread_context) {
-                        document.getElementById('psid').value = thread_context.psid;
+                        $('#psid').val(thread_context.psid);
+                        $.getJSON('/webviews/settings?psid=' + thread_context.psid, function(data) {
+                            console.log('Ha llego esto :V :', data);
+                            $('#carrera_' + data.id_carrera).prop('selected', true);
+                            $('#codigo').val(data.cod_estudiante);
+                            $('#nombres').val(data.nombres);
+                            $('#apellidos').val(data.apellidos);
+                            $('#dni').val(data.dni);
+                            $('#email').val(data.email);
+                            $('#broadcast_' + data.newsletter).prop('checked', true);
+
+
+                        });
                     },
                     function error(err) {
                         // error
                     }
                 );
-            };
-
-            document.getElementById('submitButton').addEventListener('click', function() {
-                MessengerExtensions.requestCloseBrowser(function success() {
-                    // webview closed
-                }, function error(err) {
-                    // an error occurred
+                $('#submitButton').click(function() {
+                    MessengerExtensions.requestCloseBrowser(function success() {
+                        // webview closed
+                    }, function error(err) {
+                        // an error occurred
+                    });
                 });
-            })
+            };
         </script>
 </body>
 
