@@ -325,11 +325,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             weather.getWeather(responseText)
                 .then(clima => {
                     sendTextMessage(sender, `El clima en ${responseText} es ${clima}℃`);
-                    setTimeOut(sendTextMessage(sender, `Parece que el clima esta algo movidito`), 500);
+                    setTimeOut((sendTextMessage(sender, `Parece que el clima esta algo movidito`)), 500);
+
                 })
                 .catch(() => {
                     sendTextMessage(sender, 'No encontre el clima para esa ubicacion');
-                })
+                });
 
             break;
         case "req-tramites":
