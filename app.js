@@ -319,7 +319,11 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
         // },0,sender);
 
         // break;
-        case "Get_Started.Get_Started-yes":
+        case "bot-clima":
+            const weather = require('./bot-clima/bot-clima');
+            let clima = weather.getWeather(responseText);
+            sendTextMessage(sender, `El clima en ${responseText} es ${clima} C`);
+
 
             break;
         case "req-tramites":
