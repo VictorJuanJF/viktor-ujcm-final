@@ -325,7 +325,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             weather.getWeather(responseText)
                 .then(clima => {
                     sendTextMessage(sender, `El clima en ${responseText} es ${clima}℃`);
-                    (sendTextMessage(sender, `Parece que el clima esta algo movidito`));
+                    (sendTextMessage(sender, `Créditos a OpenWeatherMap 🤗 sabe todo del clima`));
 
                 })
                 .catch(() => {
