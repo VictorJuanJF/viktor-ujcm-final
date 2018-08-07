@@ -323,9 +323,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             const weather = require('./bot-clima/bot-clima');
 
             weather.getWeather(responseText)
-                .then(async clima => {
-                    await sendTextMessage(sender, `El clima en ${responseText} es ${clima}℃`);
-                    await sendTextMessage(sender, `Parece que el clima esta algo movidito`);
+                .then(clima => {
+                    sendTextMessage(sender, `El clima en ${responseText} es ${clima}℃`);
+                    setTimeOut(sendTextMessage(sender, `Parece que el clima esta algo movidito`), 500);
                 })
                 .catch(() => {
                     sendTextMessage(sender, 'No encontre el clima para esa ubicacion');
