@@ -18,7 +18,7 @@ module.exports = {
             if (!error && response.statusCode == 200) {
 
                 var user = JSON.parse(body);
-                console.log('Datos de usuario: ' + user);
+                console.log('Datos de usuario: ' + JSON.stringify(user));
                 console.log('Se entro a addUser de user.js');
                 if (user.first_name.length > 0) {
 
@@ -42,7 +42,7 @@ module.exports = {
                                         console.log('rows: ' + result.rows.length);
                                         if (result.rows.length === 0) {
                                             let sql = 'INSERT INTO users (fb_id, first_name, last_name, profile_pic, ' +
-                                                'fec_registro,email) VALUES ($1, $2, $3, $4, $5)';
+                                                'fec_registro,email) VALUES ($1, $2, $3, $4, $5,$6)';
                                             console.log('email: ' + user.email);
                                             client.query(sql, [
                                                 userId,
