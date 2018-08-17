@@ -15,17 +15,7 @@ const queries_user_estudiante = require('../queries_user_estudiante');
 // });
 
 router.post('/', function(req, res) {
-
-    let datosRegistroEstudiantes = [];
-    datosRegistroEstudiantes[0] = 'Derecho';
-    datosRegistroEstudiantes[1] = req.body.codigo;
-    datosRegistroEstudiantes[2] = req.body.nombres;
-    datosRegistroEstudiantes[3] = req.body.apellidos;
-    datosRegistroEstudiantes[4] = req.body.dni;
-    datosRegistroEstudiantes[5] = req.body.email;
-    datosRegistroEstudiantes[6] = req.user;
-    queries_user_estudiante.insert_user_estudiante(function(callback) {}, datosRegistroEstudiantes);
-    res.sendStatus(200);
+    res.send('Hola! este espacio será la futura Pagina Web de Mariateguino UJCM')
 });
 
 

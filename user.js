@@ -18,7 +18,6 @@ module.exports = {
             if (!error && response.statusCode == 200) {
 
                 var user = JSON.parse(body);
-                console.log('Datos de usuario: ' + JSON.stringify(user));
                 console.log('Se entro a addUser de user.js');
                 if (user.first_name.length > 0) {
 
