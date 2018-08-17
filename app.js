@@ -1,5 +1,5 @@
 'use strict';
-
+require('newrelic'); // Stay awake
 const apiai = require('apiai');
 const config = require('./config');
 const express = require('express');
