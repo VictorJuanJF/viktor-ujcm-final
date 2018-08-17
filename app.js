@@ -52,6 +52,9 @@ if (!config.PG_CONFIG) { //postgresql config object
     throw new Error('missing PG_CONFIG');
 }
 
+//================================================================
+//====================VIKTOR-UJCM=======================
+//================================================================
 
 
 app.set('port', (process.env.PORT || 5000))
