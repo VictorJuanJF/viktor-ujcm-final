@@ -346,7 +346,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                 console.log(`Palabra mandada: ${responseText}`);
                 requisitos.leerTramitesPre(function(requisitos) {
                     console.log('lo que encontre en la bd es: ', requisitos);
-                    console.log('esto tambien encontre: ', requisitos[0]);
                     if (requisitos == 'INDEFINIDO') {
                         sendTextMessage(sender, 'No encontré información sobre ese trámite 🤐 capaz no escribiste su nombre correctamente'); //Por si no se encontro en la BD			
                     } else {

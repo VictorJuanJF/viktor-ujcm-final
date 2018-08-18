@@ -59,13 +59,14 @@ module.exports = {
                             console.log(err);
                             callback('');
                         }
-                        console.log('Se esta enviando: ', result.rows);
+
                         if (result.rows.length > 0) {
                             callback(result.rows);
 
                         } else {
                             callback('INDEFINIDO');
                         }
+                        console.log('Se esta enviando: ', result.rows);
 
                         done();
 
