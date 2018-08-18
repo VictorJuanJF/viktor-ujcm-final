@@ -44,7 +44,8 @@ module.exports = {
 
     leerTramitesPre: function(callback, nombreRequisito) {
         var pool = new pg.Pool(config.PG_CONFIG);
-        console.log('Se entro a requisitosTramites.js');
+        console.log('I am into leerTramitesPre from requisitosTramites.js');
+        console.log('Recibi la palabra ' + nombreRequisito);
         pool.connect(function(err, client, done) {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
