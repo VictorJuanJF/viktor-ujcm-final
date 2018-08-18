@@ -17,6 +17,7 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const session = require('express-session');
 const broadcast = require('./routes/broadcast');
 const webviews = require('./routes/webviews');
+const levenshtain = require('./Algorithms/Levenshtein');
 
 
 pg.defaults.ssl = true;
@@ -337,6 +338,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 
             break;
         case "req-tramites":
+            let maxPercentWord;
+            levenshtain.applyLevenshtein(responseText, (res) => {
+                maxPercentWord = res;
+            });
             if (!isDefined(contexts[0]) || contexts[0].name != 'req-tramites_dialog_params_requisitos') {
                 console.log(`Palabra mandada: ${responseText}`);
                 requisitos.leerTramitesPre(function(requisitos) {
@@ -358,7 +363,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                         }
                     }
 
-                }, responseText)
+                }, maxPercentWord)
 
             } else {
                 sendTextMessage(sender, responseText); //Para que pida requisitos
