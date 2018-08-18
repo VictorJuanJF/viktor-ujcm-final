@@ -20,7 +20,17 @@ let collection = [
     'Admisión por Traslado Interno',
     'Ampliación de Créditos',
     'anulación de deuda',
-    'autenticación de documentos'
+    'autenticación de documentos',
+    'Record Académico',
+    'Retiro e Inclusión de Cursos',
+    'llevar curso en otra escuela',
+    'Certificado de Estudios del Centro de Idiomas',
+    'Certificado de Estudio',
+    'Constancia de No adeudo',
+    'Grado de Bachiller',
+    'Constancia de Egresado',
+    'Reserva de Matrícula',
+
 ]
 console.log(collection);
 
@@ -84,7 +94,7 @@ function similarity(s1, s2) {
     return percent;
 }
 
-applyLevenshtein('Adecuacion', (res) => {
+applyLevenshtein('mi adecuacion', (res) => {
 
 });
 
