@@ -30,7 +30,8 @@ let collection = [
     'Grado de Bachiller',
     'Constancia de Egresado',
     'Reserva de Matrícula',
-    'Reanudación de Estudios'
+    'Reanudación de Estudios',
+    'Duplicado de Recibo'
 
 ]
 
