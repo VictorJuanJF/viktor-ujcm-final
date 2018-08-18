@@ -30,9 +30,10 @@ let collection = [
     'Grado de Bachiller',
     'Constancia de Egresado',
     'Reserva de Matrícula',
+    'Reanudación de Estudios'
 
 ]
-console.log(collection);
+
 
 
 
