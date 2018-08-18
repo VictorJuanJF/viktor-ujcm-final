@@ -24,10 +24,12 @@ let collection = [
 ]
 console.log(collection);
 
+
+
 const applyLevenshtein = (strg1, callback) => {
     for (let i = 0; i < collection.length; i++) {
         weights[i] = similarity(strg1, collection[i]);
-        if (i == 1) {
+        if (i == 0) {
             MaxPercentWord[0] = weights[i];
             MaxPercentWord[1] = collection[i];
         } else if (weights[i] > MaxPercentWord[0]) {
@@ -77,9 +79,14 @@ function similarity(s1, s2) {
     if (longerLength == 0) {
         return 1.0;
     }
-    let percent = (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength)
+    let percent = (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
+    console.log(s1 + ' y ' + s2 + ' es:               ' + percent);
     return percent;
 }
+
+applyLevenshtein('Adecuacion', (res) => {
+
+});
 
 module.exports = {
     applyLevenshtein
