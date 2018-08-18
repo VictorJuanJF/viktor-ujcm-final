@@ -27,6 +27,25 @@ router.get('/dashboard', function(req, res) {
 
 });
 
+router.get('/datos', function(req, res) {
+
+    requisitos.listadoTramites(function(listadoRequisitos) {
+        let datos = [];
+        datos = listadoRequisitos;
+        res.json(datos);
+    });
+
+
+});
+router.post('/save', function(req, res) {
+
+    requisitos.actualizarTramitesPre((callback) => {
+        res.json({ DataActualizada: req.body });
+    }, req.body);
+
+
+});
+
 router.post('/dashboard', function(req, res) {
 
     var datosProcedimiento = [];
@@ -37,6 +56,7 @@ router.post('/dashboard', function(req, res) {
     datosProcedimiento[4] = req.body.duracion;
     datosProcedimiento[5] = req.body.costo;
     requisitos.insertarTramitesPre(function(callback) {}, datosProcedimiento);
+    console.log(datosProcedimiento[0]);
     res.sendStatus(200);
 });
 

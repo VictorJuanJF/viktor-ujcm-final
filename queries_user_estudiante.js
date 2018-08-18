@@ -14,7 +14,6 @@ module.exports = {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
             }
-
             client
                 .query(
                     'UPDATE procedimiento_ad_pre SET newsletter=$1 WHERE fb_id=$2', [setting, userId],

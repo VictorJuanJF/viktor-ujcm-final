@@ -338,6 +338,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             break;
         case "req-tramites":
             if (!isDefined(contexts[0]) || contexts[0].name != 'req-tramites_dialog_params_requisitos') {
+                console.log(`Palabra mandada: ${responseText}`);
                 requisitos.leerTramitesPre(function(requisitos) {
                     console.log('lo que encontre en la bd es: ', requisitos);
                     console.log('esto tambien encontre: ', requisitos[0]);
