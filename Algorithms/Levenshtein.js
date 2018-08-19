@@ -152,7 +152,7 @@ let collection = [
 
     'tratamientos clínicos',
     'Justificación de Inasistencia',
-    'Sin costo por si no se aprueba tu solicitud (Consultar con el director de escuela) 😏'
+    'Llevar Curso en otro Plan de Estudios'
 
 ]
 
