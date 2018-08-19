@@ -152,7 +152,10 @@ let collection = [
 
     'tratamientos clínicos',
     'Justificación de Inasistencia',
-    'Llevar Curso en otro Plan de Estudios'
+    'Llevar Curso en otro Plan de Estudios',
+    'Fraccionamiento de Deuda',
+    'Reubicación de Actividad Integradora',
+    'Cambio y Reseteo de Clave'
 
 ]
 
