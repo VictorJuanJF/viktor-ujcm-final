@@ -366,8 +366,32 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             } else {
                 sendTextMessage(sender, responseText); //Para que pida requisitos
             }
+            break;
+        case "req-tramites-with-entity": // Without Levenshtain
+            if (!isDefined(contexts[0]) || contexts[0].name != 'req-tramites-with-entity_dialog_params_requisitos') {
+                console.log(`Palabra mandada: ${responseText}`);
+                requisitos.leerTramitesPre(function(requisitos) {
+                    if (requisitos == 'INDEFINIDO') {
+                        sendTextMessage(sender, 'Ups, no encontré información sobre ese trámite 🤐 capaz no escribiste su nombre correctamente'); //Por si no se encontro en la BD			
+                    } else {
+                        let requisito = requisitos;
+                        let reply = [];
+                        reply[0] = 'Estos son los requisitos que encontré para ' + responseText + ' 😉 \n' + requisito[0].requisito;
+                        reply[0] = reply[0].replace(/\\n/g, '\n');
+                        reply[1] = 'recuerda también que ya puedes hacer tus trámites en línea 😀';
+                        // reply[1] = 'El costo para este trámite es: ' + requisito[0].costo;
+                        // reply[2] = 'Tambien puedes ver el manual de procedimientos ' +
+                        //    '😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
+                        for (var i = 0; i < reply.length; i++) {
+                            sendTextMessage(sender, reply[i]);
+                        }
+                    }
 
+                }, responseText)
 
+            } else {
+                sendTextMessage(sender, responseText); //Para que pida requisitos
+            }
             break;
             // case "iphone_colors":
             // 	colors.readAllColors(function(allColors){
