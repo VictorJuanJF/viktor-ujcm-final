@@ -368,7 +368,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             case 1: // Tramites Escuela
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
                                 setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
-                                let replies = [{
+                                let replies_escuela = [{
                                         "content_type": "text",
                                         "title": "Sí",
                                         "payload": "si_tramite_escuela"
@@ -380,12 +380,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies), 1500);
+                                setTimeout(() => sendQuickReply(sender, responseText, replies_escuela), 1500);
                                 break;
                             case 2: // Tramites Economia 
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
                                 setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
-                                let replies = [{
+                                let replies_economia = [{
                                         "content_type": "text",
                                         "title": "Sí",
                                         "payload": "si_tramite_economia"
@@ -402,7 +402,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                             case 3: // Tramites servicios academicos
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
                                 setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
-                                let replies = [{
+                                let replies_servicios_academicos = [{
                                         "content_type": "text",
                                         "title": "Sí",
                                         "payload": "si_tramite_servicio_academico"
@@ -414,12 +414,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies), 1500);
+                                setTimeout(() => sendQuickReply(sender, responseText, replies_servicios_academicos), 1500);
                                 break;
                             case 4: // Tramites bienestar
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
                                 setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
-                                let replies = [{
+                                let replies_bienestar = [{
                                         "content_type": "text",
                                         "title": "Sí",
                                         "payload": "si_tramite_bienestar"
@@ -431,7 +431,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies), 1500);
+                                setTimeout(() => sendQuickReply(sender, responseText, replies_bienestar), 1500);
                                 break;
                         }
 
@@ -453,14 +453,84 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     } else {
                         let requisito = requisitos;
                         let reply = [];
-                        reply[0] = 'Estos son los requisitos que encontré para ' + responseText + ' 😉 \n' + requisito[0].requisito;
+                        reply[0] = 'Estos son los requisitos que encontré para ' + maxPercentWord + ' 😉 \n' + requisito[0].requisito;
                         reply[0] = reply[0].replace(/\\n/g, '\n');
                         reply[1] = 'recuerda también que ya puedes hacer tus trámites en línea 😀';
-                        // reply[1] = 'El costo para este trámite es: ' + requisito[0].costo;
-                        // reply[2] = 'Tambien puedes ver el manual de procedimientos ' +
-                        //    '😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
-                        for (var i = 0; i < reply.length; i++) {
-                            sendTextMessage(sender, reply[i]);
+                        sendTextMessage(sender, reply[0]);
+                        setTimeout(() => sendTextMessage(sender, reply[1]), 500);
+                        switch (requisito[0].tipo_oficina_tramite) {
+                            case 0: // Tramites que no figuran en el sistema Tramite en linea
+                                reply[2] = `Este trámite lo tienes que hacer personalmente 😅`;
+                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
+                                break;
+                            case 1: // Tramites Escuela
+                                reply[2] = `¿Quieres hacer este trámite ahora?`;
+                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
+                                let replies_escuela = [{
+                                        "content_type": "text",
+                                        "title": "Sí",
+                                        "payload": "si_tramite_escuela"
+                                    },
+                                    {
+                                        "content_type": "text",
+                                        "title": "No",
+                                        "payload": "no_tramite"
+                                    }
+
+                                ];
+                                setTimeout(() => sendQuickReply(sender, responseText, replies_escuela), 1500);
+                                break;
+                            case 2: // Tramites Economia 
+                                reply[2] = `¿Quieres hacer este trámite ahora?`;
+                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
+                                let replies_economia = [{
+                                        "content_type": "text",
+                                        "title": "Sí",
+                                        "payload": "si_tramite_economia"
+                                    },
+                                    {
+                                        "content_type": "text",
+                                        "title": "No",
+                                        "payload": "no_tramite"
+                                    }
+
+                                ];
+                                setTimeout(() => sendQuickReply(sender, responseText, replies), 1500);
+                                break;
+                            case 3: // Tramites servicios academicos
+                                reply[2] = `¿Quieres hacer este trámite ahora?`;
+                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
+                                let replies_servicios_academicos = [{
+                                        "content_type": "text",
+                                        "title": "Sí",
+                                        "payload": "si_tramite_servicio_academico"
+                                    },
+                                    {
+                                        "content_type": "text",
+                                        "title": "No",
+                                        "payload": "no_tramite"
+                                    }
+
+                                ];
+                                setTimeout(() => sendQuickReply(sender, responseText, replies_servicios_academicos), 1500);
+                                break;
+                            case 4: // Tramites bienestar
+                                reply[2] = `¿Quieres hacer este trámite ahora?`;
+                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
+                                let replies_bienestar = [{
+                                        "content_type": "text",
+                                        "title": "Sí",
+                                        "payload": "si_tramite_bienestar"
+                                    },
+                                    {
+                                        "content_type": "text",
+                                        "title": "No",
+                                        "payload": "no_tramite"
+                                    }
+
+                                ];
+                                setTimeout(() => sendQuickReply(sender, responseText, replies_bienestar), 1500);
+                                break;
                         }
                     }
 
