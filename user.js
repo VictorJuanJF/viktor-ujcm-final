@@ -41,15 +41,14 @@ module.exports = {
                                         console.log('rows: ' + result.rows.length);
                                         if (result.rows.length === 0) {
                                             let sql = 'INSERT INTO users (fb_id, first_name, last_name, profile_pic, ' +
-                                                'fec_registro,email) VALUES ($1, $2, $3, $4, $5,$6)';
+                                                'fec_registro) VALUES ($1, $2, $3, $4, $5)';
                                             console.log('email: ' + user.email);
                                             client.query(sql, [
                                                 userId,
                                                 user.first_name,
                                                 user.last_name,
                                                 user.profile_pic,
-                                                date,
-                                                user.email
+                                                date
 
                                             ]);
                                         }
