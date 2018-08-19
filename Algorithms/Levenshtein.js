@@ -8,169 +8,149 @@ let MaxPercentWord = [];
 
 
 let collection = [
-    ' Adecuación al nuevo plan de estudios',
+    'Adecuación al nuevo plan de estudios',
+    'Admisión para personas con Discapacidad',
+    'Admisión por 1er o 2do Puesto de Educación Secundaria',
+    'Admisión por el Ingreso del Centro Pre Universitario',
+    'ADMISIÓN POR GRADO O TÍTULO PROFESIONAL UNIVERSITARIO',
+    'Admisión por Reanudación de Estudios',
+    'Admisión por ser Deportista Calificado',
+    'ADMISIÓN POR TÍTULO DE INSTITUTO DE EDUCACIÓN SUPERIOR NO UNIVERSITARIO',
+    'Admisión por Traslado Externo',
+    'Admisión por Traslado Interno',
+    'Ampliación de Créditos',
+    'anulación de deuda',
+    'autenticación de documentos',
+    'Beca por ayudantía de cátedra',
+    'Beca por ayudantía de investigación',
+    'Beca por casos especiales (orfandad/ discapacidad)',
+    'Beca por hermanos estudiantes',
+    'Beca por padre e hijo estudiantes',
+    'Beca por Precariedad Económica',
+    'Beca por promedio ponderado acumulativo',
+    'Beca por representar a la Universidad en evento deportivo',
 
-    ' Admisión para personas con Discapacidad',
+    'Beca por Retiro Voluntario, de Jubilación o Fallecimiento del Docente Ordinario o del Personal Administrativo Indeterminado de la Universidad',
 
-    ' Admisión por 1er o 2do Puesto de Educación Secundaria',
+    'Beca por ser Cónyuges estudiantes',
 
-    ' Admisión por el Ingreso del Centro Pre Universitario',
+    'Beca por ser hijo de docente o trabajador administrativo de la Universidad',
 
-    ' ADMISIÓN POR GRADO O TÍTULO PROFESIONAL UNIVERSITARIO',
+    'Beca por tres primeros puestos en el examen de admisión',
 
-    ' Admisión por Reanudación de Estudios',
+    'Boleta de notas',
 
-    ' Admisión por ser Deportista Calificado',
+    'Búsqueda de Documentos',
 
-    ' ADMISIÓN POR TÍTULO DE INSTITUTO DE EDUCACIÓN SUPERIOR NO UNIVERSITARIO',
+    'Cambio de Filial',
 
-    ' Admisión por Traslado Externo',
+    'Cambio de Modalidad',
 
-    ' Admisión por Traslado Interno',
+    'cambio de nombre y apellido por mandato judicial',
 
-    ' Ampliación de Créditos',
+    'Carné de Biblioteca',
 
-    ' anulación de deuda',
+    'Carta de Presentación',
 
-    ' autenticación de documentos',
+    'Carta de Presentación de Internado',
 
-    ' Beca por ayudantía de cátedra',
+    'Certificado de Estudio',
 
-    ' Beca por ayudantía de investigación',
+    'Certificado de Estudios del Centro de Idiomas',
 
-    ' Beca por casos especiales (orfandad/ discapacidad)',
+    'Conformidad de Documentos',
 
-    ' Beca por hermanos estudiantes',
+    'Constancia Biblioteca',
 
-    ' Beca por padre e hijo estudiantes',
+    'Constancia de Conducta ',
 
-    ' Beca por Precariedad Económica',
+    'Constancia de Egresado',
 
-    ' Beca por promedio ponderado acumulativo',
+    'Constancia de Estudios',
 
-    ' Beca por representar a la Universidad en evento deportivo',
+    'Constancia de Estudios del Centro de Idiomas',
 
-    ' Beca por Retiro Voluntario, de Jubilación o Fallecimiento del Docente Ordinario o del Personal Administrativo Indeterminado de la Universidad',
+    'Constancia de Internado',
 
-    ' Beca por ser Cónyuges estudiantes',
+    'Constancia de Matrícula',
 
-    ' Beca por ser hijo de docente o trabajador administrativo de la Universidad',
+    'Constancia de Modalidad de estudios',
 
-    ' Beca por tres primeros puestos en el examen de admisión',
+    'Constancia de No adeudo',
 
-    ' Boleta de notas',
+    'Constancia de No Adeudo de la Clínica Odontológica',
 
-    ' Búsqueda de Documentos',
+    'Constancia de orden de mérito',
 
-    ' Cambio de Filial',
+    'Constancia de Promedio Ponderado',
 
-    ' Cambio de Modalidad',
+    'Constancia Económica',
 
-    ' cambio de nombre y apellido por mandato judicial',
+    'Constancia por Tercio y Quinto Superior',
 
-    ' Carné de Biblioteca',
+    'Convalidación de Cursos',
 
-    ' Carta de Presentación',
+    'Corrección de Nombres y/o Apellidos',
 
-    ' Carta de Presentación de Internado',
+    'Curso Autofinanciado',
 
-    ' Certificado de Estudio',
+    'Curso Autofinanciado cuando falta 01 ó 02 cursos para culminar la Carrera',
 
-    ' Certificado de Estudios del Centro de Idiomas',
+    'Curso Paralelo',
 
-    ' Conformidad de Documentos',
+    'Diploma de Egresado en Auxiliar en Educación',
 
-    ' Constancia Biblioteca',
+    'Duplicado de Certificado de Estudio',
 
-    ' Constancia de Conducta ',
+    'Duplicado de Constancia de Ingreso',
 
-    ' Constancia de Egresado',
+    'Duplicado de Ficha de Matrícula',
 
-    ' Constancia de Estudios',
+    'Duplicado de Recibo',
 
-    ' Constancia de Estudios del Centro de Idiomas',
+    'examen de aplazados',
 
-    ' Constancia de Internado',
+    'Examen de rezagados',
 
-    ' Constancia de Matrícula',
+    'Examen de Suficiencia pregrado',
 
-    ' Constancia de Modalidad de estudios',
+    'Examen de Ubicación',
 
-    ' Constancia de No adeudo',
+    'Grado de Bachiller',
 
-    ' Constancia de No Adeudo de la Clínica Odontológica',
+    'INSCRIPCIÓN POR EL CENTRO PRE UNIVERSITARIO',
 
-    ' Constancia de orden de mérito',
+    'llevar curso en otra escuela',
 
-    ' Constancia de Promedio Ponderado',
+    'llevar curso en otra facultad',
 
-    ' Constancia Económica',
+    'matrícula con proforma académica',
 
-    ' Constancia por Tercio y Quinto Superior',
+    'Matrícula Especial',
 
-    ' Convalidación de Cursos',
+    'Matrícula Especial por Cuarta Matrícula',
 
-    ' Corrección de Nombres y/o Apellidos',
+    'Matrícula Virtual',
 
-    ' Curso Autofinanciado',
+    'Proceso de Admisión',
 
-    ' Curso Autofinanciado cuando falta 01 ó 02 cursos para culminar la Carrera',
+    'Reanudación de Estudios',
 
-    ' Curso Paralelo',
+    'Record Académico',
 
-    ' Diploma de Egresado en Auxiliar en Educación',
+    'Reserva de Matrícula',
 
-    ' Duplicado de Certificado de Estudio',
+    'Retiro e Inclusión de Cursos',
 
-    ' Duplicado de Constancia de Ingreso',
+    'Solicitud de Sílabos',
 
-    ' Duplicado de Ficha de Matrícula',
+    'Solicitud de Sílabos para Auxiliar en Educación',
 
-    ' Duplicado de Recibo',
+    'Título profesional',
 
-    ' examen de aplazados',
+    'transferencia de dinero',
 
-    ' Examen de rezagados',
-
-    ' Examen de Suficiencia pregrado',
-
-    ' Examen de Ubicación',
-
-    ' Grado de Bachiller',
-
-    ' INSCRIPCIÓN POR EL CENTRO PRE UNIVERSITARIO',
-
-    ' llevar curso en otra escuela',
-
-    ' llevar curso en otra facultad',
-
-    ' matrícula con proforma académica',
-
-    ' Matrícula Especial',
-
-    ' Matrícula Especial por Cuarta Matrícula',
-
-    ' Matrícula Virtual',
-
-    ' Proceso de Admisión',
-
-    ' Reanudación de Estudios',
-
-    ' Record Académico',
-
-    ' Reserva de Matrícula',
-
-    ' Retiro e Inclusión de Cursos',
-
-    ' Solicitud de Sílabos',
-
-    ' Solicitud de Sílabos para Auxiliar en Educación',
-
-    ' Título profesional',
-
-    ' transferencia de dinero',
-
-    ' tratamientos clínicos'
+    'tratamientos clínicos'
 
 ]
 
