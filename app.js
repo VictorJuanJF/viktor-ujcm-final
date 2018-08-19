@@ -353,12 +353,16 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                         reply[0] = 'Estos son los requisitos que encontré para ' + maxPercentWord + ' 😉 \n' + requisito[0].requisito;
                         reply[0] = reply[0].replace(/\\n/g, '\n');
                         reply[1] = 'recuerda también que ya puedes hacer tus trámites en línea 😀';
+                        reply[2] = `deseas hacer tu trámite ${requisito[0].tipo_oficina_tramite} ahora?`;
                         // reply[1] = 'El costo para este trámite es: ' + requisito[0].costo;
                         // reply[2] = 'Tambien puedes ver el manual de procedimientos ' +
                         //    '😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
-                        for (var i = 0; i < reply.length; i++) {
-                            sendTextMessage(sender, reply[i]);
-                        }
+
+                        sendTextMessage(sender, reply[0]);
+                        setTimeout(sendTextMessage(sender, reply[1]), 500);
+                        setTimeout(sendTextMessage(sender, reply[2]), 1000);
+
+
                     }
 
                 }, maxPercentWord)

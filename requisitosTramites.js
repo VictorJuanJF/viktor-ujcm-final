@@ -13,7 +13,7 @@ module.exports = {
             if (err) {
                 return console.error('Error acquiring client', err.stack);
             }
-            let sql1 = 'UPDATE procedimiento_ad_pre SET nombre=$1,objetivo=$2,responsabilidad=$3,requisito=$4,duracion=$5,costo=$6 where id_procedimiento_ad_pre=$7';
+            let sql1 = 'UPDATE procedimiento_ad_pre SET nombre=$1,objetivo=$2,responsabilidad=$3,requisito=$4,duracion=$5,costo=$6,tipo_oficina_tramite=$7 where id_procedimiento_ad_pre=$8';
             client
                 .query(sql1, [
                         data.nombre,
@@ -22,6 +22,7 @@ module.exports = {
                         data.requisito,
                         data.duracion,
                         data.costo,
+                        data.tipo_oficina_tramite,
                         data.id
                     ],
                     function(err, result) {
@@ -52,7 +53,7 @@ module.exports = {
             }
             client
                 .query(
-                    'SELECT requisito,costo FROM public.procedimiento_ad_pre WHERE nombre=$1', [nombreRequisito],
+                    'SELECT requisito,costo,tipo_oficina_tramite FROM public.procedimiento_ad_pre WHERE nombre=$1', [nombreRequisito],
                     function(err, result) {
                         //
                         if (err) {
