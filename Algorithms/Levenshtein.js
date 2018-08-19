@@ -150,7 +150,8 @@ let collection = [
 
     'transferencia de dinero',
 
-    'tratamientos clínicos'
+    'tratamientos clínicos',
+    'Justificación de Inasistencia'
 
 ]
 

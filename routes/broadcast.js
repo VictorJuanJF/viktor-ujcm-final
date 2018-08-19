@@ -55,9 +55,11 @@ router.post('/dashboard', function(req, res) {
     datosProcedimiento[3] = req.body.requisito;
     datosProcedimiento[4] = req.body.duracion;
     datosProcedimiento[5] = req.body.costo;
-    requisitos.insertarTramitesPre(function(callback) {}, datosProcedimiento);
-    console.log(datosProcedimiento[0]);
-    res.sendStatus(200);
+    datosProcedimiento[6] = req.body.tipo_oficina_tramite;
+    requisitos.insertarTramitesPre((callback) => {
+        res.json({ DataInsertada: req.body });
+    }, datosProcedimiento);
+
 });
 
 router.get('/no-access', function(req, res) {

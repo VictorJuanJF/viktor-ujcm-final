@@ -115,20 +115,22 @@ module.exports = {
             }
             client
                 .query(
-                    'INSERT INTO procedimiento_ad_pre (nombre,objetivo,responsabilidad,requisito,duracion,costo)' +
-                    'VALUES ($1,$2,$3,$4,$5,$6)', [
+                    'INSERT INTO procedimiento_ad_pre (nombre,objetivo,responsabilidad,requisito,duracion,costo,tipo_oficina_tramite)' +
+                    'VALUES ($1,$2,$3,$4,$5,$6,$7)', [
                         datosProcedimiento[0],
                         datosProcedimiento[1],
                         datosProcedimiento[2],
                         datosProcedimiento[3],
                         datosProcedimiento[4],
-                        datosProcedimiento[5]
+                        datosProcedimiento[5],
+                        datosProcedimiento[6]
                     ],
                     function(err, result) {
                         if (err) {
                             console.log(err);
                             callback([]);
                         } else {
+                            console.log('Inserción de ' + datosProcedimiento[0] + ' correcta');
                             callback([]);
                         };
                         done();
