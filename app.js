@@ -453,7 +453,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     } else {
                         let requisito = requisitos;
                         let reply = [];
-                        reply[0] = 'Estos son los requisitos que encontré para ' + maxPercentWord + ' 😉 \n' + requisito[0].requisito;
+                        reply[0] = 'Estos son los requisitos que encontré para ' + responseText + ' 😉 \n' + requisito[0].requisito;
                         reply[0] = reply[0].replace(/\\n/g, '\n');
                         reply[1] = 'recuerda también que ya puedes hacer tus trámites en línea 😀';
                         sendTextMessage(sender, reply[0]);
