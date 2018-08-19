@@ -397,7 +397,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies), 1500);
+                                setTimeout(() => sendQuickReply(sender, responseText, replies_economia), 1500);
                                 break;
                             case 3: // Tramites servicios academicos
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
@@ -495,7 +495,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies), 1500);
+                                setTimeout(() => sendQuickReply(sender, responseText, replies_economia), 1500);
                                 break;
                             case 3: // Tramites servicios academicos
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
