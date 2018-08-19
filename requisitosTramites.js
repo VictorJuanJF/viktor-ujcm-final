@@ -66,7 +66,7 @@ module.exports = {
                         } else {
                             callback('INDEFINIDO');
                         }
-                        console.log('Se esta enviando: ', result.rows);
+                        //console.log('Se esta enviando: ', result.rows);
 
                         done();
 
