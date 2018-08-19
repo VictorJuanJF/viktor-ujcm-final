@@ -359,8 +359,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                         //    '😀 https://drive.google.com/file/d/18RHP8zLFeKi1T2q-dWYFunv72mAI0RHw/view?usp=sharing';
 
                         sendTextMessage(sender, reply[0]);
-                        setTimeout(sendTextMessage(sender, reply[1]), 500);
-                        setTimeout(sendTextMessage(sender, reply[2]), 1000);
+                        setTimeout(() => sendTextMessage(sender, reply[1]), 500);
+                        setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
 
 
                     }
