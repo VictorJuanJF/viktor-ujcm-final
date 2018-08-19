@@ -367,7 +367,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                 break;
                             case 1: // Tramites Escuela
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
-                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
                                 let replies_escuela = [{
                                         "content_type": "text",
                                         "title": "Sí",
@@ -380,11 +379,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies_escuela), 1500);
+                                setTimeout(() => sendQuickReply(sender, reply[2], replies_escuela), 1500);
                                 break;
                             case 2: // Tramites Economia 
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
-                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
                                 let replies_economia = [{
                                         "content_type": "text",
                                         "title": "Sí",
@@ -397,11 +395,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies_economia), 1500);
+                                setTimeout(() => sendQuickReply(sender, reply[2], replies_economia), 1500);
                                 break;
                             case 3: // Tramites servicios academicos
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
-                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
                                 let replies_servicios_academicos = [{
                                         "content_type": "text",
                                         "title": "Sí",
@@ -414,11 +411,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies_servicios_academicos), 1500);
+                                setTimeout(() => sendQuickReply(sender, reply[2], replies_servicios_academicos), 1500);
                                 break;
                             case 4: // Tramites bienestar
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
-                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
                                 let replies_bienestar = [{
                                         "content_type": "text",
                                         "title": "Sí",
@@ -431,7 +427,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies_bienestar), 1500);
+                                setTimeout(() => sendQuickReply(sender, reply[2], replies_bienestar), 1500);
                                 break;
                         }
 
@@ -465,7 +461,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                 break;
                             case 1: // Tramites Escuela
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
-                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
                                 let replies_escuela = [{
                                         "content_type": "text",
                                         "title": "Sí",
@@ -478,11 +473,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies_escuela), 1500);
+                                setTimeout(() => sendQuickReply(sender, reply[2], replies_escuela), 1500);
                                 break;
                             case 2: // Tramites Economia 
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
-                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
                                 let replies_economia = [{
                                         "content_type": "text",
                                         "title": "Sí",
@@ -495,11 +489,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies_economia), 1500);
+                                setTimeout(() => sendQuickReply(sender, reply[2], replies_economia), 1500);
                                 break;
                             case 3: // Tramites servicios academicos
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
-                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
                                 let replies_servicios_academicos = [{
                                         "content_type": "text",
                                         "title": "Sí",
@@ -512,11 +505,10 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies_servicios_academicos), 1500);
+                                setTimeout(() => sendQuickReply(sender, reply[2], replies_servicios_academicos), 1500);
                                 break;
                             case 4: // Tramites bienestar
                                 reply[2] = `¿Quieres hacer este trámite ahora?`;
-                                setTimeout(() => sendTextMessage(sender, reply[2]), 1000);
                                 let replies_bienestar = [{
                                         "content_type": "text",
                                         "title": "Sí",
@@ -529,7 +521,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                     }
 
                                 ];
-                                setTimeout(() => sendQuickReply(sender, responseText, replies_bienestar), 1500);
+                                setTimeout(() => sendQuickReply(sender, reply[2], replies_bienestar), 1500);
                                 break;
                         }
                     }
