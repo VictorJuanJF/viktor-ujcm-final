@@ -1259,6 +1259,18 @@ function receivedPostback(event) {
         case 'ver_mas_pre_payload':
             sendToApiAi(senderID, 'ver_mas_pre_payload');
             break;
+            //Horarios de clases
+
+        case 'horario_derecho_payload':
+            sendToApiAi(senderID, 'horario_derecho_payload');
+            break;
+        case 'horario_contabilidad_payload':
+            sendToApiAi(senderID, 'horario_contabilidad_payload');
+            break;
+        case 'mas_horarios_payload':
+            sendToApiAi(senderID, 'mas_horarios_payload');
+            break;
+
 
 
         default:
