@@ -156,7 +156,7 @@ let collection = [
     'Fraccionamiento de Deuda',
     'Reubicación de Actividad Integradora',
     'Cambio y Reseteo de Clave',
-    'Resolución Prácticas Pre-Profesionales'
+    'Resolución Prácticas'
 
 ]
 
