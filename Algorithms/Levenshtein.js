@@ -155,7 +155,8 @@ let collection = [
     'Llevar Curso en otro Plan de Estudios',
     'Fraccionamiento de Deuda',
     'Reubicación de Actividad Integradora',
-    'Cambio y Reseteo de Clave'
+    'Cambio y Reseteo de Clave',
+    'Resolución Prácticas Pre-Profesionales'
 
 ]
 
