@@ -122,8 +122,6 @@ let collection = [
 
     'llevar curso en otra escuela',
 
-    'llevar curso en otra facultad',
-
     'matrícula con proforma académica',
 
     'Matrícula Especial',
