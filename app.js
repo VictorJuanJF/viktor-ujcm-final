@@ -348,6 +348,22 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     if (requisitos == 'INDEFINIDO') {
                         sendTextMessage(sender, 'No encontré información sobre ese trámite 🤐 capaz no escribiste su nombre correctamente'); //Por si no se encontro en la BD			
                     } else {
+                        if (requisitos = 'Grado de Bachiller') {
+                            reply[0] = 'Si ingresaste a la UJCM antes del 2014 el bachiller es automático';
+                            let replies_bachiller = [{
+                                    "content_type": "text",
+                                    "title": "Sí, ingresé antes",
+                                    "payload": "si_bachiller"
+                                },
+                                {
+                                    "content_type": "text",
+                                    "title": "No, ingresé después",
+                                    "payload": "no_bachiller"
+                                }
+
+                            ];
+                            return setTimeout(() => sendQuickReply(sender, reply[0], replies_bachiller), 1500);
+                        }
                         let requisito = requisitos;
                         let reply = [];
                         reply[0] = 'Estos son los requisitos que encontré para ' + maxPercentWord + ' 😉 \n' + requisito[0].requisito;
