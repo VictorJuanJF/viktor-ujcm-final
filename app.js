@@ -348,9 +348,9 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     if (requisitos == 'INDEFINIDO') {
                         sendTextMessage(sender, 'No encontré información sobre ese trámite 🤐 capaz no escribiste su nombre correctamente'); //Por si no se encontro en la BD			
                     } else {
-                        if (requisitos = 'Grado de Bachiller') {
+                        if (requisitos == 'Grado de Bachiller') {
                             var msgBach;
-                            msgBach = 'Si ingresaste a la UJCM antes del 2014 el bachiller es automático';
+                            msgBach = 'parece que quieres tramitar tu grado de bachiller, \n¿ingresaste a la UJCM antes de marzo del 2014?';
                             let replies_bachiller = [{
                                     "content_type": "text",
                                     "title": "Sí, ingresé antes",
@@ -464,6 +464,23 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     if (requisitos == 'INDEFINIDO') {
                         sendTextMessage(sender, 'Ups, no encontré información sobre ese trámite 🤐 capaz no escribiste su nombre correctamente'); //Por si no se encontro en la BD			
                     } else {
+                        if (requisitos == 'Grado de Bachiller') {
+                            var msgBach;
+                            msgBach = 'parece que quieres tramitar tu grado de bachiller, \n¿ingresaste a la UJCM antes de marzo del 2014?';
+                            let replies_bachiller = [{
+                                    "content_type": "text",
+                                    "title": "Sí, ingresé antes",
+                                    "payload": "si_bachiller"
+                                },
+                                {
+                                    "content_type": "text",
+                                    "title": "No, ingresé después",
+                                    "payload": "no_bachiller"
+                                }
+
+                            ];
+                            return setTimeout(() => sendQuickReply(sender, msgBach, replies_bachiller), 1500);
+                        }
                         let requisito = requisitos;
                         let reply = [];
                         reply[0] = 'Estos son los requisitos que encontré para ' + responseText + ' 😉 \n' + requisito[0].requisito;
