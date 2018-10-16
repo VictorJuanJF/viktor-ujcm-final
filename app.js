@@ -464,7 +464,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     if (requisitos == 'INDEFINIDO') {
                         sendTextMessage(sender, 'Ups, no encontré información sobre ese trámite 🤐 capaz no escribiste su nombre correctamente'); //Por si no se encontro en la BD			
                     } else {
-                        if (maxPercentWord == 'Grado de Bachiller') {
+                        if (responseText == 'Grado de Bachiller') {
                             var msgBach;
                             msgBach = 'parece que quieres tramitar tu grado de bachiller, \n¿ingresaste a la UJCM antes de marzo del 2014?';
                             let replies_bachiller = [{
