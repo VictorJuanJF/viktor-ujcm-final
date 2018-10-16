@@ -349,7 +349,8 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                         sendTextMessage(sender, 'No encontré información sobre ese trámite 🤐 capaz no escribiste su nombre correctamente'); //Por si no se encontro en la BD			
                     } else {
                         if (requisitos = 'Grado de Bachiller') {
-                            reply[0] = 'Si ingresaste a la UJCM antes del 2014 el bachiller es automático';
+                            var msgBach;
+                            msgBach = 'Si ingresaste a la UJCM antes del 2014 el bachiller es automático';
                             let replies_bachiller = [{
                                     "content_type": "text",
                                     "title": "Sí, ingresé antes",
@@ -362,7 +363,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                                 }
 
                             ];
-                            return setTimeout(() => sendQuickReply(sender, reply[0], replies_bachiller), 1500);
+                            return setTimeout(() => sendQuickReply(sender, msgBach, replies_bachiller), 1500);
                         }
                         let requisito = requisitos;
                         let reply = [];
