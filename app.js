@@ -350,7 +350,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
                     } else {
                         if (maxPercentWord == 'Grado de Bachiller') {
                             var msgBach;
-                            msgBach = 'parece que quieres tramitar tu grado de bachiller, \n¿ingresaste a la UJCM antes de marzo del 2014?';
+                            msgBach = 'parece que quieres tramitar tu grado de bachiller, \n¿ingresaste a la UJCM antes de julio del 2014?';
                             let replies_bachiller = [{
                                     "content_type": "text",
                                     "title": "Sí, ingresé antes",
