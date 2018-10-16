@@ -344,11 +344,12 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             });
             if (!isDefined(contexts[0]) || contexts[0].name != 'req-tramites_dialog_params_requisitos') {
                 console.log(`Palabra mandada: ${responseText}`);
-                requisitos.leerTramitesPre(function(requisitos) {
+                requisitos.leerTramitesPre((requisitos) => {
                     if (requisitos == 'INDEFINIDO') {
                         sendTextMessage(sender, 'No encontré información sobre ese trámite 🤐 capaz no escribiste su nombre correctamente'); //Por si no se encontro en la BD			
                     } else {
-                        if (requisitos == 'Grado de Bachiller') {
+                        console.log(requisitos);
+                        if (requisitos == ' Grado de Bachiller') {
                             var msgBach;
                             msgBach = 'parece que quieres tramitar tu grado de bachiller, \n¿ingresaste a la UJCM antes de marzo del 2014?';
                             let replies_bachiller = [{
