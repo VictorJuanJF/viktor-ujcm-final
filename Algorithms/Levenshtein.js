@@ -45,7 +45,7 @@ entries = [{
     },
     {
         value: 'Admisión por Traslado Interno',
-        synonym: ['Admisión por Traslado Interno']
+        synonym: ['Admisión por Traslado Interno', 'traslado interno']
     },
     {
         value: 'Ampliación de Créditos',
@@ -213,7 +213,7 @@ entries = [{
     },
     {
         value: 'Corrección de Nombres y/o Apellidos',
-        synonym: ['Corrección de Nombres y/o Apellidos']
+        synonym: ['Corrección de Nombres y/o Apellidos', 'cambio de nombres', 'cambio de apellidos', 'correcion de nombres', 'correcion de apellidos']
     },
     {
         value: 'Curso Autofinanciado',
