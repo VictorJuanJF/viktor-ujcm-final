@@ -66,24 +66,24 @@ router.get('/no-access', function(req, res) {
     res.render('no-access');
 });
 
-router.get('/broadcast', ensureAuthenticated, function(req, res) {
-    res.render('broadcast', { user: req.user });
+router.get('/broadcast', function(req, res) {
+    res.render('broadcast');
 });
 
-router.post('/broadcast', ensureAuthenticated, function(req, res) {
+router.post('/broadcast', function(req, res) {
     let message = req.body.message;
-    let newstype = parseInt(req.body.newstype, 10);
-    req.session.newstype = newstype;
+    //let newstype = parseInt(req.body.newstype, 10);
+    //req.session.newstype = newstype;
     req.session.message = message;
     userService.readAllUsers(function(users) {
         req.session.users = users;
-        res.render('broadcast-confirm', { user: req.user, message: message, users: users, numUsers: users.length, newstype: newstype })
-    }, newstype);
+        res.render('broadcast-confirm', { user: req.user, message: message, users: users, numUsers: users.length })
+    });
 
 
 });
 
-router.get('/broadcast-send', ensureAuthenticated, function(req, res) {
+router.get('/broadcast-send', function(req, res) {
     let message = req.session.message;
     let allUsers = req.session.users;
 
@@ -96,7 +96,7 @@ router.get('/broadcast-send', ensureAuthenticated, function(req, res) {
     res.redirect('/broadcast-sent');
 });
 
-router.get('/broadcast-sent', ensureAuthenticated, function(req, res) {
+router.get('/broadcast-sent', function(req, res) {
     let newstype = req.session.newstype;
     let message = req.session.message;
     let users = req.session.users;
@@ -108,7 +108,7 @@ router.get('/broadcast-sent', ensureAuthenticated, function(req, res) {
     res.render('broadcast-sent', { message: message, users: users, numUsers: users.length, newstype: newstype });
 });
 
-router.get('/logout', ensureAuthenticated, function(req, res) {
+router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
 });

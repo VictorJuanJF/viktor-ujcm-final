@@ -14,22 +14,11 @@
 
     <main>
         <div class="container">
-            <h2>Hello,
-                <%= user.displayName %>
+            <h2>Hola!,
             </h2>
 
             <form class="form-horizontal" method="post" action="/broadcast/">
-                <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Enviar a:</label>
-                    <div class="col-sm-10">
-                        <div class="radio">
-                            <label><input type="radio" name="newstype" value="1">Noticias Semanales</label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" name="newstype" value="2">Noticias Diarias</label>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="email">Mensaje:</label>
                     <div class="col-sm-10">

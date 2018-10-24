@@ -66,7 +66,7 @@ module.exports = {
 
     },
 
-    list_user_estudiante: function(callback, psid) {
+    list_users_by_id: function(callback, psid) {
         var pool = new pg.Pool(config.PG_CONFIG);
         console.log('Se entro a list_user_estudiante');
         pool.connect(function(err, client, done) {
@@ -76,7 +76,7 @@ module.exports = {
 
             client
                 .query(
-                    'SELECT id_carrera,cod_estudiante,nombres,apellidos,dni,email,newsletter FROM user_estudiante WHERE fb_id=$1', [psid],
+                    'SELECT newsletter,is_student FROM users WHERE fb_id=$1', [psid],
                     function(err, result) {
                         //
                         if (err) {
@@ -133,6 +133,35 @@ module.exports = {
         });
         //pool.end();
     },
+
+    update_settings_users: function(callback, datosRegistroEstudiantes) {
+        console.log('esto llego: ', datosRegistroEstudiantes);
+        var pool = new pg.Pool(config.PG_CONFIG);
+        pool.connect(function(err, client, done) {
+            if (err) {
+                return console.error('Error acquiring client', err.stack);
+            }
+            client
+                .query(
+                    'UPDATE users SET is_student=$1,newsletter=$2 WHERE fb_id=$3', [datosRegistroEstudiantes[0],
+                        datosRegistroEstudiantes[1],
+                        datosRegistroEstudiantes[2]
+                    ],
+                    function(err, result) {
+                        if (err) {
+                            console.log('Algo salio mal :( :', err);
+                            callback(false);
+                        } else {
+                            callback(true);
+                            console.log('IMPORTANTE: ', datosRegistroEstudiantes);
+                            console.log('updated users settings');
+                        };
+                        done();
+                    });
+
+        });
+    },
+
     insert_update_user_estudiante: function(callback, datosRegistroEstudiantes) {
         var pool = new pg.Pool(config.PG_CONFIG);
         console.log('Datos enviados a insert_update_user_estudiante: ', datosRegistroEstudiantes);

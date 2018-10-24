@@ -105,25 +105,6 @@ passport.deserializeUser(function(profile, cb) {
 
 app.set('view engine', 'ejs');
 
-app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'public_profile' }));
-
-
-app.get('/auth/facebook/callback',
-    passport.authenticate('facebook', { successRedirect: '/broadcast', failureRedirect: '/' }));
-
-
-
-passport.use(new FacebookStrategy({
-        clientID: config.FB_APP_ID,
-        clientSecret: config.FB_APP_SECRET,
-        callbackURL: config.SERVER_URL + "auth/facebook/callback"
-    },
-    function(accessToken, refreshToken, profile, cb) {
-        process.nextTick(function() {
-            return cb(null, profile);
-        });
-    }
-));
 
 app.use('/', broadcast);
 app.use('/webviews', webviews);

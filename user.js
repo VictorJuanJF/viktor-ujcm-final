@@ -77,7 +77,7 @@ module.exports = {
         });
     },
 
-    readAllUsers: function(callback, newstype) {
+    readAllUsers: function(callback) {
         var pool = new pg.Pool(config.PG_CONFIG);
         pool.connect(function(err, client, done) {
             if (err) {
@@ -86,7 +86,7 @@ module.exports = {
             console.log('Se entro a readAllUsers de user.js');
             client
                 .query(
-                    'SELECT fb_id, first_name, last_name FROM users WHERE newsletter=$1', [newstype],
+                    'SELECT fb_id, first_name, last_name FROM users WHERE newsletter=1',
                     function(err, result) {
                         if (err) {
                             console.log(err);
