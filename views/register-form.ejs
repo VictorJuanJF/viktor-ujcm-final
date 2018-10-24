@@ -73,7 +73,7 @@
 
         //Cuando ya cargo el webview
         window.extAsyncInit = function() {
-            MessengerExtensions.getContext('2088363134567524',
+            MessengerExtensions.getContext('500259897078868',
                 function success(thread_context) {
                     $('#psid').val(thread_context.psid);
                     $.getJSON('/webviews/settings?psid=' + thread_context.psid, function(data) {
