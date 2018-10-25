@@ -1294,14 +1294,14 @@ function receivedPostback(event) {
             break;
 
             //Investigacion
-        case 'proceso_tesis_payload':
-            sendToApiAi(senderID, 'proceso_tesis_payload');
-            break;
-        case 'asesor_pregrado_payload':
-            sendToApiAi(senderID, 'asesor_pregrado_payload');
+        case 'proceso_bach_titulo_payload':
+            sendToApiAi(senderID, 'proceso_bach_titulo_payload');
             break;
         case 'indice_formato_pregrado_payload':
             sendToApiAi(senderID, 'indice_formato_pregrado_payload');
+            break;
+        case 'manual_grados_titulos_payload':
+            sendToApiAi(senderID, 'manual_grados_titulos_payload');
             break;
 
 
