@@ -1293,6 +1293,17 @@ function receivedPostback(event) {
             sendToApiAi(senderID, 'mas_horarios_payload');
             break;
 
+            //Investigacion
+        case 'proceso_tesis_payload':
+            sendToApiAi(senderID, 'proceso_tesis_payload');
+            break;
+        case 'asesor_pregrado_payload':
+            sendToApiAi(senderID, 'asesor_pregrado_payload');
+            break;
+        case 'indice_formato_pregrado_payload':
+            sendToApiAi(senderID, 'indice_formato_pregrado_payload');
+            break;
+
 
 
         default:
