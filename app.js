@@ -61,6 +61,7 @@ if (!config.PG_CONFIG) { //postgresql config object
 const http = require("http");
 setInterval(function() {
     http.get("https://smart-ujcm.herokuapp.com");
+    console.log('Keeping viktor UJCM awake');
 }, 300000); // every 5 minutes (300000)
 
 
