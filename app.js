@@ -57,6 +57,12 @@ if (!config.PG_CONFIG) { //postgresql config object
 //====================VIKTOR-UJCM=======================
 //================================================================
 
+//Keep bot awake
+const http = require("http");
+setInterval(function() {
+    http.get("https://smart-ujcm.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
+
 
 app.set('port', (process.env.PORT || 5000))
 
