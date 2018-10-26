@@ -58,11 +58,11 @@ if (!config.PG_CONFIG) { //postgresql config object
 //================================================================
 
 //Keep bot awake
-const https = require("https");
-setInterval(function() {
-    https.get("https://smart-ujcm.herokuapp.com");
-    console.log('Keeping viktor UJCM awake');
-}, 300000); // every 5 minutes (300000)
+// const https = require("https");
+// setInterval(function() {
+//     https.get("https://smart-ujcm.herokuapp.com");
+//     console.log('Keeping viktor UJCM awake');
+// }, 300000); // every 5 minutes (300000)
 
 
 app.set('port', (process.env.PORT || 5000))
